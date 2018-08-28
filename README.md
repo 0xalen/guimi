@@ -1,9 +1,9 @@
 # guimi
-#===============================================================================#  
-#________________GuIMI: Guía Interactiva del Museo de Informática_______________#  
-#===============================================================================#  
+#=========================================================#  
+#_____GuIMI: Guía Interactiva del Museo de Informática____#  
+#=========================================================#  
 
-GuIMI es una aplicación desarrollada para el Museo de Informática de la UNPA-UARG. 
-La aplicación utiliza realidad aumentada para ofrecer información acerca de los
-elementos que se encuentran en exposición y ofrecer así una experiencia más 
-interactiva a los visitantes. 
+GuIMI es una aplicación desarrollada para el Museo de Informática de la UNPA-UARG.  
+La aplicación utiliza realidad aumentada para ofrecer información acerca de los  
+elementos que se encuentran en exposición y ofrecer así una experiencia más   
+interactiva a los visitantes.   
