@@ -1,6 +1,6 @@
 # guimi
 #=========================================================#    
-#___ _GuIMI: Guía Interactiva del Museo de Informática_ __#    
+#_______ _GuIMI: Guía Interactiva del Museo de Informática_ ______#    
 #=========================================================#    
 
 GuIMI es una aplicación desarrollada para el Museo de Informática de la UNPA-UARG.  
