@@ -13,9 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/guimi/?source=pwa",
+  "start_url": "../index.html",
   "display": "standalone",
-  "scope": "/guimi/",
+  "scope": "/",
   "background_color": "#2657C0",
   "theme_color": "#2657C0"
 }
