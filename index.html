@@ -25,12 +25,21 @@
     <title>"GuIMI: Guía Interactiva del Museo de Informática"</title>
     <link rel="stylesheet" type="text/css" href="visitante/styles/inline.css">
 
-	<link rel="manifest" href="/visitante/manifest.json">
+	<link rel="manifest" href="manifest.json">
 	
 </head>
 <body style='margin : 0px; overflow: hidden;'> -->
 
+	<div id="sideMenu" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+	  <a href="#">Inicio</a>
+	  <a href="#">Novedades</a>
+	  <a href="#">Contacto</a>
+	  <a href="#">Acerca del Museo</a>
+	</div>
+
     <header class="header">
+	  <span style="font-size:30px;cursor:pointer" onclick="openMenu()">&#9776; open</span>
       <h1 class="header__title">GuIMI</h1>
       <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
     </header>

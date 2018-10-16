@@ -19,11 +19,11 @@ var cacheName = 'guimiPWA-1';
 var filesToCache = [
   '/',
   '/index.html',
-  '/scripts/app.js',
-  '/styles/inline.css',
-  '/images/logos/logo_guimi-192.png',
-  '/images/logos/logo_guimi-512.png',
-  '/images/logos/logo_guimi-circle.png'
+  '/visitante/scripts/app.js',
+  '/visitante/styles/inline.css',
+  '/visitante/images/logos/logo_guimi-192.png',
+  '/visitante/images/logos/logo_guimi-512.png',
+  '/visitante/images/logos/logo_guimi-circle.png'
 ];
 
 self.addEventListener('install', function(e) {
