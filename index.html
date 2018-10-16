@@ -24,6 +24,7 @@
     <meta name=viewport" content="width=device-width, initial-scale=1.0">
     <title>"GuIMI: Guía Interactiva del Museo de Informática"</title>
     <link rel="stylesheet" type="text/css" href="visitante/styles/inline.css">
+    <script src="visitante/scripts/sidenav.js"></script>
 
 	<link rel="manifest" href="manifest.json">
 	
@@ -31,15 +32,14 @@
 <body style='margin : 0px; overflow: hidden;'> -->
 
 	<div id="sideMenu" class="sidenav">
-	  <a href="visitante/scripts/sidenav.js" class="closebtn" onclick="closeMenu()">&times;</a>
-	  <a href="#">Inicio</a>
-	  <a href="#">Novedades</a>
-	  <a href="#">Contacto</a>
-	  <a href="#">Acerca del Museo</a>
+	  <a href="#inicio" onclick="closeMenu()">Inicio</a>
+	  <a href="#novedades">Novedades</a>
+	  <a href="#contacto">Contacto</a>
+	  <a href="#acerca">Acerca del Museo</a>
 	</div>
 
     <header class="header">
-	  <span style="font-size:30px;cursor:pointer" onclick="openMenu()">&#9776;</span>
+	  <span style="font-size:20px;cursor:pointer" onclick="openMenu()">&#9776;</span>
       <h1 class="header__title">GuIMI</h1>
       <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
     </header>
