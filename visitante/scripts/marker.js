@@ -1,15 +1,11 @@
 function createNewMarker(id, elementName, patternURL) {
-            var obj = {};
-    obj.id = id;
-    obj.elementName = elementName;
-    obj.patternURL = patternURL;
-
-    return obj;
+    this.id = id;
+    this.elementName = elementName;
+    this.patternURL = patternURL;
 }
 
 function createMarkersManager() {
-    var obj = {};
-    obj.markerList = [];
+    this.markerList = [];
 }
 
 function addMarker(list, marker) {

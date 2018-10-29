@@ -1,8 +1,6 @@
 function createVisitorManager() {
-    var obj = {};
-    obj.markersLoaded = false;
+    this.markersLoaded = false;
 
-    return obj;
 }
 
 function searchForMarkers(list) {
