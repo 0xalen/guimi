@@ -1,28 +1,26 @@
-function createNewMarker(id, elementName, patternURL) {
-    this.id = id;
-    this.elementName = elementName;
-    this.patternURL = patternURL;
-}
+function Marker(eID, eName, pattURL) {
+    var id = eID;
+    var elementName = eName;
+    var patternURL = pattURL;
 
-function createMarkersManager() {
-    this.markerList = [];
-}
+    this.getID = function() {
+        return id;
+    }
+    this.getElementName = function() {
+        return elementName;
+    }
+    this.getPatternURL = function(){
+        return patternURL;
+    }
 
-function addMarker(list, marker) {
-    list.push(marker);
-    return list;
-}
-
-function removeMarker(list, ) {
-    list
-}
-
-function searchElementIndex(list, element) {
-    if (list.indexOf !== undefined) {
-        list.indexOf(element);
-    } else {
-
+    this.setID = function(eID) {
+        id = eID;
+    }
+    this.setElementName = function(eName) {
+        elementName = eName;
+    }
+    this.setPatternURL = function(pattURL) {
+        patternURL = pattURL;
     }
 }
-
 
