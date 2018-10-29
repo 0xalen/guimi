@@ -50,6 +50,9 @@
     <div id="mainScene">
         <a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
             <!-- Content-->
+			<a-assets>
+	    		<img id="transpImage" src="/visitante/images/icons/markerDetected.png">
+			</a-assets>
 
 			<!-- Default marker
             <a-marker preset="hiro">
@@ -58,11 +61,7 @@
 
 			<!-- Custom marker -->
 			<a-marker preset="custom" type="pattern" url="/visitante/test/pattern/PA0001.patt">
-				<a-assets>
-        		<img id="transpImage" src="/visitante/images/icons/markerDetected.png">
-    		</a-assets>
 			<a-image position="0 1 0" rotation="0 45 0" width="1" height="1" src="#transpImage">
-
             </a-marker>
 
             <a-entity camera></a-entity>
