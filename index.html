@@ -25,27 +25,51 @@
     <title>"GuIMI: Guía Interactiva del Museo de Informática"</title>
     <link rel="stylesheet" type="text/css" href="visitante/styles/inline.css">
     <script src="visitante/scripts/sidenav.js"></script>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
 
 	<link rel="manifest" href="manifest.json">
-	
+
 </head>
-<body style='margin : 0px; overflow: hidden;'> -->
+<body style='margin : 0px; overflow: hidden;'>
 
 	<div id="sideMenu" class="sidenav">
-	  <span style="font-size:20px;cursor:pointer" onclick="closeMenu()">&#9776; GuIMI</span>
-	  <a href="#inicio" onclick="closeMenu()">Inicio</a>
-	  <a href="#novedades" onclick="closeMenu()">Novedades</a>
-	  <a href="#contacto" onclick="closeMenu()">Contacto</a>
-	  <a href="#acerca" onclick="closeMenu()">Acerca del Museo</a>
+	    <span style="font-size:20px;cursor:pointer" onclick="closeMenu()">&#9776; GuIMI</span>
+	    <a href="#inicio" onclick="closeMenu()">Inicio</a>
+	    <a href="#novedades" onclick="closeMenu()">Novedades</a>
+	    <a href="#contacto" onclick="closeMenu()">Contacto</a>
+	    <a href="#acerca" onclick="closeMenu()">Acerca del Museo</a>
 	</div>
 
     <header class="header">
-	  <span style="font-size:20px;cursor:pointer" onclick="openMenu()">&#9776;</span>
-      <h1 class="header__title">GuIMI</h1>
-      <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+	    <span style="font-size:20px;cursor:pointer" onclick="openMenu()">&#9776;</span>
+        <h1 class="header__title">GuIMI</h1>
+        <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
     </header>
     
-    <main class="main">        
+    <div id="mainScene">
+        <a-scene embedded arjs="sourceType: webcam;">
+            <!-- Content-->
+			<a-assets>
+        		<img id="transpImage" src="visitante/images/icons/markerDetected.png">
+    		</a-assets>
+			<a-image position="0 1 0" width="1" height="1" src="#transpImage">
+
+			<!-- Default marker -->
+            <a-marker preset="hiro">
+
+            </a-marker>
+
+			<!-- Custom marker -->
+			<a-marker preset="custom" type="pattern" url="">
+
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+    </div>
+
+    <main class="main">
         <script src="visitante/scripts/app.js" async></script>
 
     </main>
