@@ -40,29 +40,6 @@ function MarkersManager() {
         return m;
     }
 
-    // Generic List methods
-    this.addMarker = function(marker) {
-        markerList.push(marker);
-    }
-    this.removeMarker = function(markerID) {
-        var pos = this.searchElementIndex(markerID);
-        xchangeElements(pos, (markerList.length - 1));
-        var auxM = markerList.pop();
-        console.log(( auxM == undefined ) ? "Removed element "+ auxM + "." :"Element not removed");
-    }
-    this.searchElementIndex = function(markerID) {
-        /*if (list.indexOf !== undefined) {
-        } else {
-
-        } */
-        return list.indexOf(markerID);
-    }
-    var xchangeElements = function(i, j) {
-        var aux = markerList[i];
-        markerList[i] = markerList[j];
-        markerList[j] = aux;
-    }
-
     var checkElement = function(id) {
         return
     }
