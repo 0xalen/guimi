@@ -43,7 +43,7 @@ function ResourcesManager(eID) {
     }
 
     this.getContent = function() {
-
+        return resourceList;
     }
 
     // Keep count of content available
@@ -86,7 +86,7 @@ function ResourcesManager(eID) {
     this.addElementsToList = function(rList) {
         var i, r;
         for (i = 0; i < rList.length; i++ ) {
-            r = this.createResource(rList.rName, rList.rURL);
+            r = this.createResource(rList.rName[i], rList.rURL[i]);
             this.addResource(r);
         }
     }
@@ -109,6 +109,19 @@ function ResourcesManager(eID) {
     var requestImages = function() {
         // Request image content for element with ID = elementID
         // Process JSON file
+        /**
+        *   // Until the API is implemented, these are test values
+        *   {
+        *   "rName":[ "CA0005_I-01", "CA0005_I-02", "CA0005_I-03" ],
+        *   "rURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-02.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-03.png"]
+        *   }
+        *
+        **/
+        var rList = {
+                    "rName":[ "CA0005_I-01", "CA0005_I-02", "CA0005_I-03" ],
+                    "rURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-02.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-03.png"]
+        }
+
         this.addElementsToList(rList);
     }
     var requestTexts = function() {
