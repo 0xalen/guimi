@@ -25,7 +25,7 @@
 		markersLoaded: false,
 		markersDetected: false,
 		elementChosen: false,
-		contentTypeChosen: false,
+		contentTypeChosen: -1,
 		viewingContent: false,
 
     };
@@ -55,6 +55,11 @@
         }
     });
 
+    /* Markers */
+    document.getElementById("transpImage").addEventListener("click", function() {
+        console.log('Element chosen');
+        selectElement();
+    });
     /* Option menu events */
     document.getElementById("typeImage").addEventListener("click", function() {
         console.log('Image content selected');
@@ -75,7 +80,7 @@
 
     document.getElementById("goBack").addEventListener("click", function() {
         console.log('Close menu');
-        history.back()
+        closeContentGallery();
     });
 
 
@@ -85,20 +90,18 @@
     *   UI
     *
     ***********************************************************/
-
-    // OPEN OPTION CHOOSER
+    /* CONTENT OPTIONS*/
+    // OPEN
     var openOptionsMenu = function(id) {
         showOptions();
         getContent();
     }
 
-    // CLOSE OPTIONS MENU
+    // CLOSE
     var closeOptionsMenu = function() {
         hideOptions();
         lookForMarkers();
     }
-
-    /* CONTENT OPTIONS*/
 
     var hideOptions = function() {
     document.getElementById('contentOptionsMenu').style.display='none';
@@ -108,6 +111,7 @@
         document.getElementById('contentOptionsMenu').style.display='block';
     }
 
+    /* CONTENT GALLERY */
     // OPEN GALLERY
     var openContentGallery = function(cType) {
         // document.getElementById('debug').innerHTML = cType;
@@ -115,10 +119,15 @@
         importContent(cType);
         displayContent();
         showContentGallery();
+    }
+
+    // CLOSE GALLERY
+    var closeContentGallery = function() {
+        hideContentGallery();
+        openOptionsMenu();
 
     }
 
-    /* CONTENT GALLERY */
     var hideContentGallery = function() {
         document.getElementById('contentGallery').style.display='none';
     }
@@ -144,11 +153,12 @@
     var importMarkers = function(v) {
         if (!v.checkLoaded()) {
             v.loadMarkers();
-            markersLoaded = true;
+            app.markersLoaded = v.checkLoaded();
     	}
     }
 
   	var lookForMarkers = function(v) {
+		// TO DO change with A-FRAME to create Scenes
 		v.searchForMarkers()
   	}
 
