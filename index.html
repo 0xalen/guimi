@@ -50,7 +50,7 @@
     </header>
     
     <div id="mainScene" class="main">
-        <a-scene embedded arjs> <!-- ="sourceType: webcam;">  detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> -->
+        <a-scene embedded arjs="debugUIEnabled: false;"> <!-- ="sourceType: webcam;">  detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> -->
             <!-- Content-->
 			<a-assets>
 	    		<img id="transpImage" src="visitante/images/icons/markerDetected.png">
@@ -69,19 +69,61 @@
         </a-scene>
     </div>
 
-		<div id="contentOptionsMenu" class="contentOptionsMenu" style="display:none">
+		<div id="contentGallery" class="contentGallery" style="display:none">
+       <!-- Container for the image gallery -->
+        <div class="container">
+
+          <!-- Full-width images with number text -->
+          <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+              <img src="img_woods_wide.jpg" style="width:100%">
+          </div>
+
+
+          <!-- Image text -->
+          <div class="caption-container">
+            <p id="caption"></p>
+          </div>
+
+          <!-- Thumbnail images -->
+          <div class="row">
+            <div class="column">
+              <img class="demo cursor" src="img_woods.jpg" style="width:100%" onclick="displayContent(1)" alt="The Woods">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="img_5terre.jpg" style="width:100%" onclick="displayContent(2)" alt="Cinque Terre">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="img_mountains.jpg" style="width:100%" onclick="displayContent(3)" alt="Mountains and fjords">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="img_lights.jpg" style="width:100%" onclick="displayContent(4)" alt="Northern Lights">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="img_nature.jpg" style="width:100%" onclick="displayContent(5)" alt="Nature and sunrise">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="displayContent(6)" alt="Snowy Mountains">
+            </div>
+          </div>
+        </div>
+
+		</div>
+
+		<div id="contentOptionsMenu" class="contentOptionsMenu" style="display:block">
+		  <p id="debug">LALALA</p>
       <div class="row">
         <div class="column">
-          <img src="visitante/images/icons/icon_cont-imagen.png" alt="Imagen" onclick="chooseContentType(0);">
+          <img id="typeImage" src="visitante/images/icons/icon_cont-imagen.png" alt="Imagen">
         </div>
         <div class="column">
-          <img src="visitante/images/icons/icon_cont-texto.png" alt="Texto" onclick="chooseContentType(1);">
+          <img id="typeText" src="visitante/images/icons/icon_cont-texto.png" alt="Texto">
         </div>
         <div class="column">
-          <img src="visitante/images/icons/icon_cont-video.png" alt="Video" onclick="chooseContentType(2);">
+          <img id="typeVideo" src="visitante/images/icons/icon_cont-video.png" alt="Video">
         </div>
         <div class="column">
-          <img src="visitante/images/icons/icon_cont-audio.png" alt="Audio" onclick="chooseContentType(3);">
+          <img id="typeAudio" src="visitante/images/icons/icon_cont-audio.png" alt="Audio">
         </div>
       </div>
       </div>

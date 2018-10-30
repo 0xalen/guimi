@@ -49,15 +49,19 @@
 
     /* Option menu events */
     document.getElementById('typeImage').addEventListener('click', function() {
+        console.log('Image content selected');
         chooseContentType(0);
     });
     document.getElementById('typeText').addEventListener('click', function() {
+        console.log('Text content selected');
         chooseContentType(1);
     });
     document.getElementById('typeVideo').addEventListener('click', function() {
+        console.log('Video content selected');
         chooseContentType(2);
     });
     document.getElementById('typeAudio').addEventListener('click', function() {
+        console.log('Audio content selected');
         chooseContentType(3);
     });
 
@@ -86,7 +90,7 @@
     *
     ***********************************************************/
 
-    /* Content options*/
+    /* CONTENT OPTIONS*/
     var hideOptions = function() {
     document.getElementById('contentOptionsMenu').style.display='none';
     }
@@ -100,8 +104,14 @@
         //selectContentType(cType);
     }
 
-    /* Content gallery */
+    /* CONTENT GALLERY */
+    var hideContentGallery = function() {
+        document.getElementById('contentGallery').style.display='none';
+    }
 
+    var showContentGallery = function() {
+        document.getElementById('contentGallery').style.display='block';
+    }
 
     /**********************************************************
     *
