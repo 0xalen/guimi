@@ -4,8 +4,9 @@ function VisitorManager() {
     var markersDetectedM;
     // var markersDetected = 0; reemplazado por markersDetectedM.getLength
     var elementChosen = false;
+    var elementChosenID = "";
     var resourceM;
-    var contentType = -1;
+    var contentType = ;
     var viewingContent = false;
 
 
@@ -24,6 +25,7 @@ function VisitorManager() {
         markerListM.setMarkers();
         markersLoaded = true;
     }
+
     var createMarkerManager = function() {
         return new MarkersManager();
     }
@@ -70,25 +72,17 @@ function VisitorManager() {
         AUDIO: 3,
     }
 
-    this.setChosen = function() {
-        if (markersDetectedM.getLength() === 1) {
-            elementChosen = true;
-            return;
-        }
-            elementChosen = false;
-    }
-
     this.loadOptions = function() {
         var chosenID = markersDetectedM.getMarkers()[0].getID();
         resourceM = createResourceManager(chosenID);
     }
 
-    this.selectContentType = function(c) {
+    this.selectContentType = function() {
         setContentType(c);
         loadContent();
     }
 
-    var setContentType = function(c) {
+    var setContentType = function() {
         contentType = c;
     }
     var loadContent = function() {
@@ -99,12 +93,25 @@ function VisitorManager() {
         return contentType;
     }
 
+    var markSelected = function(value) {
+        elementChosen = value;
+    }
+
+    this.selectElement = function(id) {
+        markSelected(true);
+        createResourceManager(id);
+        setContent();
+    }
+
     this.getContent = function() {
         return resourceM.getContent();
     }
 
     var createResourceManager = function(elementID) {
         return new ResourcesManager(elementID);
+    }
+    var getContentAvailable = function() {
+        return resourceM.getOptions();
     }
 
     var displayContent = function() {

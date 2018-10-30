@@ -24,7 +24,7 @@
         addDialog: document.querySelector('.dialog-container'),
 		markersLoaded: false,
 		markersDetected: false,
-		elementChosen: false,
+		chosenElementID: "",
 		contentTypeChosen: -1,
 		viewingContent: false,
 
@@ -58,8 +58,9 @@
     /* Markers */
     document.getElementById("transpImage").addEventListener("click", function() {
         console.log('Element chosen');
-        selectElement();
+//        selectElement();
     });
+
     /* Option menu events */
     document.getElementById("typeImage").addEventListener("click", function() {
         console.log('Image content selected');
@@ -93,6 +94,7 @@
     /* CONTENT OPTIONS*/
     // OPEN
     var openOptionsMenu = function(id) {
+        selectElement(v, id);
         showOptions();
         getContent();
     }
@@ -162,8 +164,9 @@
 		v.searchForMarkers()
   	}
 
-    var selectElement = function() {
-
+    var selectElement = function(v, id) {
+        app.chosenElementID = id;
+        v.selectElement(id);
     }
 
     var importOptions = function() {
