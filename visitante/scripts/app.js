@@ -47,6 +47,20 @@
         }
     });
 
+    /* Option menu events */
+    document.getElementById('typeImage').addEventListener('click', function() {
+        chooseContentType(0);
+    });
+    document.getElementById('typeText').addEventListener('click', function() {
+        chooseContentType(1);
+    });
+    document.getElementById('typeVideo').addEventListener('click', function() {
+        chooseContentType(2);
+    });
+    document.getElementById('typeAudio').addEventListener('click', function() {
+        chooseContentType(3);
+    });
+
     /**********************************************************
     *
     *   Methods
@@ -68,7 +82,37 @@
 
     /**********************************************************
     *
-    *   Main
+    *   UI
+    *
+    ***********************************************************/
+
+    /* Content options*/
+    var hideOptions = function() {
+    document.getElementById('contentOptionsMenu').style.display='none';
+    }
+
+    var showOptions = function() {
+        document.getElementById('contentOptionsMenu').style.display='block';
+    }
+
+    var chooseContentType = function(cType) {
+        document.getElementById('debug').innerHTML = cType;
+        //selectContentType(cType);
+    }
+
+    /* Content gallery */
+
+
+    /**********************************************************
+    *
+    *   Model
+    *
+    ***********************************************************/
+
+
+    /**********************************************************
+    *
+    *   Control
     *
     ***********************************************************/
     var visitor = new VisitorManager();
