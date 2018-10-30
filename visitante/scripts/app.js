@@ -84,8 +84,6 @@
         closeContentGallery();
     });
 
-
-
     /**********************************************************
     *
     *   UI
@@ -175,6 +173,15 @@
     ***********************************************************/
 
     /*  METHODS */
+    // Loader
+     var checkLoader = function() {
+        if (app.isLoading) {
+          app.spinner.setAttribute('hidden', true);
+          app.container.removeAttribute('hidden');
+          app.isLoading = false;
+        }
+    }
+
     // Check state
     var importMarkers = function(v) {
         if (!v.checkLoaded()) {
@@ -199,8 +206,7 @@
         }
 
 	  var importContent = function(c) {
-    	if (v.getContentType === 0 || v.getContentType === 1 ||
-            v.getContentType === 2 || v.getContentType === 3) {
+    	if (c === 0 || c === 1 || c === 2 || c === 3) {
             v.loadContent();
         } else {
         	console.log("Invalid content type");
@@ -223,8 +229,12 @@
 		contentTypeChosen: false,
 		viewingContent: false,
 	*/
-
-    /* MAIN */
+    /**********************************************************
+    *
+    * MAIN
+    *
+    **********************************************************/
+    checkLoader();
     var visitor = new VisitorManager();
 
 	// Load markers

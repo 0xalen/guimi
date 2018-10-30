@@ -6,7 +6,7 @@ function VisitorManager() {
     var elementChosen = false;
     var elementChosenID = "";
     var resourceM;
-    var contentType = ;
+    var contentType = -1;
     var viewingContent = false;
 
 
@@ -85,8 +85,9 @@ function VisitorManager() {
     var setContentType = function() {
         contentType = c;
     }
-    var loadContent = function() {
+    this.loadContent = function() {
         resourceM.setContent(contentType);
+
     }
 
     this.getContentType = function() {
