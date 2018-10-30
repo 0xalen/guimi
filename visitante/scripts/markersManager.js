@@ -1,14 +1,14 @@
-function createMarkersManager() {
-    this.markerList = [];
+function MarkersManager() {
+    var markerList = [];
 
 }
 
-function addMarker(list, marker) {
+function addMarker(marker) {
     list.push(marker);
     return list;
 }
 
-function removeMarker(list, ) {
+function removeMarker(list) {
     list
 }
 

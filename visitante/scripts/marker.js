@@ -3,24 +3,25 @@ function Marker(eID, eName, pattURL) {
     var elementName = eName;
     var patternURL = pattURL;
 
+    this.setID = function(eID) {
+        id = eID;
+    }
     this.getID = function() {
         return id;
+    }
+
+    this.setElementName = function(eName) {
+        elementName = eName;
     }
     this.getElementName = function() {
         return elementName;
     }
-    this.getPatternURL = function(){
-        return patternURL;
-    }
 
-    this.setID = function(eID) {
-        id = eID;
-    }
-    this.setElementName = function(eName) {
-        elementName = eName;
-    }
     this.setPatternURL = function(pattURL) {
         patternURL = pattURL;
+    }
+    this.getPatternURL = function(){
+        return patternURL;
     }
 }
 
