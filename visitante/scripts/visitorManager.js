@@ -107,6 +107,10 @@ function VisitorManager() {
         return resourceM.getContent();
     }
 
+    this.getAvailableContent = function() {
+        return resourceM.getAvailableOptions();
+    }
+
     var createResourceManager = function(elementID) {
         return new ResourcesManager(elementID);
     }

@@ -17,7 +17,7 @@ function ResourcesManager(eID) {
     this.setOptions = function() {
         requestOptions;
     }
-    this.getOptions = function() {
+    this.getAvailableOptions = function() {
         var oc = [imageCount, textCount, videoCount, audioCount];
         return oc;
     }

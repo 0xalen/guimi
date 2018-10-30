@@ -113,6 +113,15 @@
         document.getElementById('contentOptionsMenu').style.display='block';
     }
 
+    var checkAvailable = function(v) {
+        var avCont = v.getAvailableContent();
+        if (avCont[0] > 0) {
+            document.getElementById('typeImage').src='visitante/images/icons/icon_cont-imagen.png';
+        } else {
+            document.getElementById('typeImage').src='visitante/images/icons/icon_cont-imagen_gray.png';
+        }
+    }
+
     /* CONTENT GALLERY */
     // OPEN GALLERY
     var openContentGallery = function(cType) {
