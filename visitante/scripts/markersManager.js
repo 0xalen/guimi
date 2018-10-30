@@ -1,5 +1,5 @@
 function MarkersManager() {
-    var markerList = [];
+    var markerList = new MarkerList();
 
     this.setMarkers = function() {
         var mList = requestMarkers();
@@ -9,7 +9,7 @@ function MarkersManager() {
 
     this.getMarkers = function() {
         console.log(( markerList.length == 0) ? "Marker list empty":"Marker list ready");
-        return markerList;
+        return markerList.getList();
     }
 
     var requestMarkers = function() {
@@ -30,7 +30,7 @@ function MarkersManager() {
         var i, m;
         for (i = 0; i < mList.length; i++ ) {
             m = createMarker(mList.mID[i], mList.mElementName[i], mList.rPattURL[i]);
-            this.addMarker(m);
+            markerList.addMarker(m);
         }
     }
 
@@ -39,9 +39,4 @@ function MarkersManager() {
         console.log(( m == undefined ) ? "Marker not created":"Marker created");
         return m;
     }
-
-    var checkElement = function(id) {
-        return
-    }
-
 }

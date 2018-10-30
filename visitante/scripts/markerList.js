@@ -18,12 +18,11 @@ function MarkerList() {
         var auxM = markerList.pop();
         console.log(( auxM == undefined ) ? "Removed element "+ auxM + "." :"Element not removed");
     }
-    this.searchElementIndex = function(markerID) {
+    this.searchElementIndex = function(value) {
         /*if (list.indexOf !== undefined) {
         } else {
-
         } */
-        return list.indexOf(markerID);
+        return list.indexOf(value);
     }
     var xchangeElements = function(i, j) {
         var aux = markerList[i];
