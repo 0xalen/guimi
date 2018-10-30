@@ -29,7 +29,11 @@ function VisitorManager() {
     }
 
     // Search for markers in the scene
-    this.searchForMarkers = function(list) {
+    this.searchForMarkers = function() {
+        searchForMarkers(markersListM.getMarkers());
+    }
+
+    var searchForMarkers = function(list) {
         var i;
         for (i = 0; i < list.length; i++) {
             replaceMarkerPattern(list[i]);
@@ -46,7 +50,7 @@ function VisitorManager() {
         document.getElementById('').elementName=eName;
     }
 
-    var checkDetected = function(marker) {
+ /*   var checkDetected = function(marker) {
         if (markersDetected == undefined) {
             markerMD = createMarkerManager();
         }
@@ -95,11 +99,18 @@ function VisitorManager() {
         return contentType;
     }
 
-    this.displayContent = function() {
-        var cList = resourceM.getContent();
+    this.getContent = function() {
+        return resourceM.getContent();
     }
 
     var createResourceManager = function(elementID) {
         return new ResourcesManager(elementID);
+    }
+
+    var displayContent = function() {
+        resourceM.getContent();
+        // Tomar lista de recursos de contenido
+          var media = cList.getResourceURL();
+          document.getElementById('transpImage').url=media;
     }
 }

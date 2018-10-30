@@ -22,6 +22,12 @@
         spinner: document.querySelector('.loader'),
         container: document.querySelector('.main'),
         addDialog: document.querySelector('.dialog-container'),
+		markersLoaded: false,
+		markersDetected: false,
+		elementChosen: false,
+		contentTypeChosen: false,
+		viewingContent: false,
+
     };
   
     /**********************************************************
@@ -38,51 +44,41 @@
                 var markerID = marker.id;
                 console.log('markerFound', markerId);
                 // Cuando se encuentra un marcador
+                openOptionsMenu(markerID);
             });
             marker.addEventListener('markerLost', function() {
                 var markerId = marker.id;
                 console.log('markerLost', markerId);
                 // Cuando se pierde un marcador
+                closeOptionsMenu();
             });
         }
     });
 
     /* Option menu events */
-    document.getElementById('typeImage').addEventListener('click', function() {
+    document.getElementById("typeImage").addEventListener("click", function() {
         console.log('Image content selected');
-        chooseContentType(0);
+        openContentGallery(0);
     });
-    document.getElementById('typeText').addEventListener('click', function() {
+    document.getElementById("typeText").addEventListener("click", function() {
         console.log('Text content selected');
-        chooseContentType(1);
+        openContentGallery(1);
     });
-    document.getElementById('typeVideo').addEventListener('click', function() {
+    document.getElementById("typeVideo").addEventListener("click", function() {
         console.log('Video content selected');
-        chooseContentType(2);
+        openContentGallery(2);
     });
-    document.getElementById('typeAudio').addEventListener('click', function() {
+    document.getElementById("typeAudio").addEventListener("click", function() {
         console.log('Audio content selected');
-        chooseContentType(3);
+        openContentGallery(3);
     });
 
-    /**********************************************************
-    *
-    *   Methods
-    *
-    ***********************************************************/
-    // Check state
-    var checkState = function (v) {
-        if (!v.checkLoaded()) {
-            v.loadMarkers();
-        } else if (v.getContentType === 0 || v.getContentType === 1 ||
-                    v.getContentType === 2 || v.getContentType === 3) {
-            v.loadContent();
-        } else if (v.checkChosen()) {
-            v.loadOptions();
-        } else {
-            v.searchForMarkers();
-        }
-    }
+    document.getElementById("goBack").addEventListener("click", function() {
+        console.log('Close menu');
+        history.back()
+    });
+
+
 
     /**********************************************************
     *
@@ -90,7 +86,20 @@
     *
     ***********************************************************/
 
+    // OPEN OPTION CHOOSER
+    var openOptionsMenu = function(id) {
+        showOptions();
+        getContent();
+    }
+
+    // CLOSE OPTIONS MENU
+    var closeOptionsMenu = function() {
+        hideOptions();
+        lookForMarkers();
+    }
+
     /* CONTENT OPTIONS*/
+
     var hideOptions = function() {
     document.getElementById('contentOptionsMenu').style.display='none';
     }
@@ -99,9 +108,14 @@
         document.getElementById('contentOptionsMenu').style.display='block';
     }
 
-    var chooseContentType = function(cType) {
-        document.getElementById('debug').innerHTML = cType;
-        //selectContentType(cType);
+    // OPEN GALLERY
+    var openContentGallery = function(cType) {
+        // document.getElementById('debug').innerHTML = cType;
+        hideOptions();
+        importContent(cType);
+        displayContent();
+        showContentGallery();
+
     }
 
     /* CONTENT GALLERY */
@@ -119,15 +133,75 @@
     *
     ***********************************************************/
 
-
     /**********************************************************
     *
     *   Control
     *
     ***********************************************************/
+
+    /*  METHODS */
+    // Check state
+    var importMarkers = function(v) {
+        if (!v.checkLoaded()) {
+            v.loadMarkers();
+            markersLoaded = true;
+    	}
+    }
+
+  	var lookForMarkers = function(v) {
+		v.searchForMarkers()
+  	}
+
+    var selectElement = function() {
+
+    }
+
+    var importOptions = function() {
+         if (v.checkChosen()) {
+            v.loadOptions();
+        }
+
+	  var importContent = function(c) {
+    	if (v.getContentType === 0 || v.getContentType === 1 ||
+            v.getContentType === 2 || v.getContentType === 3) {
+            v.loadContent();
+        } else {
+        	console.log("Invalid content type");
+        }
+    }
+
+    var getContent = function(v) {
+        displayContent(v.getContent(), v.getContentType());
+    }
+
+    var displayContent = function(cList, cType) {
+        // Tomar lista de recursos de contenido y agregarla dinámicamnete al slide
+          var media = cList.getResourceURL();
+          document.getElementById('transpImage').url=media;
+    }
+	/*
+		markersLoaded: false,
+		markersDetected: false,
+		elementChosen: false,
+		contentTypeChosen: false,
+		viewingContent: false,
+	*/
+
+    /* MAIN */
     var visitor = new VisitorManager();
-    checkState();
 
+	// Load markers
+	if (!app.markersLoaded) {
+		importMarkers(visitor);
+	}
 
+	lookForMarkers(visitor);
+
+	// Service worker
+	if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('./service-worker.js')
+             .then(function() { console.log('Service Worker registered'); });
+  }
 
 })();
