@@ -23,8 +23,23 @@ function ResourcesManager(eID) {
     }
 
     // Handle Content
-    this.setContent = function() {
-
+    this.setContent = function(contentType) {
+        switch (contentType) {
+            case 0:
+                requestImages();
+                break;
+            case 1:
+                requestTexts();
+                break;
+            case 2:
+                requestVideos();
+                break;
+            case 3:
+                requestAudios();
+                break;
+            default:
+                requestTexts();
+        }
     }
 
     this.getContent = function() {
@@ -106,7 +121,7 @@ function ResourcesManager(eID) {
         // Process JSON file
         this.addElementsToList(rList)
     }
-    var requestAudio = function() {
+    var requestAudios = function() {
         // Request audio content for element with ID = elementID
         // Process JSON file
         this.addElementsToList(rList)
