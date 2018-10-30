@@ -120,6 +120,21 @@
         } else {
             document.getElementById('typeImage').src='visitante/images/icons/icon_cont-imagen_gray.png';
         }
+        if (avCont[1] > 0) {
+            document.getElementById('typeText').src='visitante/images/icons/icon_cont-imagen.png';
+        } else {
+            document.getElementById('typeText').src='visitante/images/icons/icon_cont-imagen_gray.png';
+        }
+        if (avCont[2] > 0) {
+            document.getElementById('typeVideo').src='visitante/images/icons/icon_cont-imagen.png';
+        } else {
+            document.getElementById('typeVideo').src='visitante/images/icons/icon_cont-imagen_gray.png';
+        }
+        if (avCont[3] > 0) {
+            document.getElementById('typeAudio').src='visitante/images/icons/icon_cont-imagen.png';
+        } else {
+            document.getElementById('typeAudio').src='visitante/images/icons/icon_cont-imagen_gray.png';
+        }
     }
 
     /* CONTENT GALLERY */
