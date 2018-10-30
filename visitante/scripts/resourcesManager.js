@@ -24,22 +24,25 @@ function ResourcesManager(eID) {
 
     // Handle Content
     this.setContent = function(contentType) {
+        var rList;
         switch (contentType) {
             case 0:
-                requestImages();
+                rList = requestImages();
                 break;
             case 1:
-                requestTexts();
+                rList = requestTexts();
                 break;
             case 2:
-                requestVideos();
+                rList = requestVideos();
                 break;
             case 3:
-                requestAudios();
+                rList = requestAudios();
                 break;
             default:
-                requestTexts();
+                rList = requestTexts();
         }
+        console.log((rList == undefined) ? "Resources not received":"Resources received")
+        addElementsToList(rList);
     }
 
     this.getContent = function() {
@@ -76,19 +79,20 @@ function ResourcesManager(eID) {
     }
 
     // Resource handling
-    this.createResource = function(rName, rURL) {
+    var addElementsToList = function(rList) {
+        var i, r;
+        for (i = 0; i < rList.length; i++ ) {
+            r = createResource(rList.rName[i], rList.rURL[i]);
+            addResource(r);
+        }
+    }
+
+    var createResource = function(rName, rURL) {
         var r = new Resource(rName, rURL);
         return r;
     }
-    this.addResource = function(resource) {
+    var addResource = function(resource) {
         resourceList.push(resource);
-    }
-    this.addElementsToList = function(rList) {
-        var i, r;
-        for (i = 0; i < rList.length; i++ ) {
-            r = this.createResource(rList.rName[i], rList.rURL[i]);
-            this.addResource(r);
-        }
     }
 
     // Contact API for info
@@ -122,7 +126,7 @@ function ResourcesManager(eID) {
                     "rURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-02.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-03.png"]
         }
 
-        this.addElementsToList(rList);
+        return rList;
     }
     var requestTexts = function() {
         // Request text content for element with ID = elementID
