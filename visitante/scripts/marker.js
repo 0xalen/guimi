@@ -2,6 +2,7 @@ function Marker(eID, eName, pattURL) {
     var id = eID;
     var elementName = eName;
     var patternURL = pattURL;
+    var detected = false;
 
     this.setID = function(eID) {
         id = eID;
@@ -22,6 +23,13 @@ function Marker(eID, eName, pattURL) {
     }
     this.getPatternURL = function(){
         return patternURL;
+    }
+
+    this.setDetected = function(det) {
+        detected = det;
+    }
+    this.getDetected = function() {
+        return detected;
     }
 }
 
