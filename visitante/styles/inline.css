@@ -343,30 +343,31 @@ body {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 } 
-/* CSS para opciones*/
- /* One column for content type */
 
+/* OPTIONS CSS */
+ /* One column for content type */
 contentOptionsMenu {
     width: 100%;
     height: 25%;
-    padding-right: 10% ;
-    padding-left: 10%;
+    bottom: 0;
+    position: fixed;
 }
-.column {
+.columnOptions {
     float: left;
     width: 25%;
     padding: 10px;
+    margin-left: 15;
 }
 
 /* Style the images inside the grid */
-.column img {
+.columnOptions img {
     opacity: 0.8;
     cursor: pointer;
     height: auto;
-    width: 60%;
+    width: 50%;
 }
 
-.column img:hover {
+.columnOptions img:hover {
     opacity: 1;
 }
 
@@ -377,3 +378,61 @@ contentOptionsMenu {
     clear: both;
 }
 
+.returnBtn {
+    float: left;
+    position: fixed;
+    margin-left: 5;
+}
+/* GALLERY CSS */
+
+* {
+  box-sizing: border-box;
+}
+
+contentGallery {
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+    position: fixed;
+}
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+
+/* Hide the images by default */
+.contentOption {
+  display: none;
+}
+
+/* Six columns side by side */
+.columnGallery {
+  float: left;
+  width: 16.66%;
+  height: auto;
+  width: 15%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
