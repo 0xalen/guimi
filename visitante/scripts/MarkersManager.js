@@ -19,6 +19,10 @@
 function MarkersManager() {
     var markerList = new MarkerList();
 
+    this.checkMarkersLoaded = function() {
+        return (markerList.getLength() === 0) ? false : true;
+    }
+
     this.setMarkers = function() {
         var mList = requestMarkers();
         console.log(( mList == undefined) ? "Marker list empty":"Marker list ready");
