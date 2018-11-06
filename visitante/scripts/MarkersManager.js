@@ -41,7 +41,7 @@ function MarkersManager() {
     var addMarkersToList = function(mList) {
         var i, m;
         for (i = 0; i < mList.getLength(); i++ ) {
-            m = new Marker(mList.mID[i], mList.mElementName[i], mList.rPattURL[i]);
+            m = new Marker(mList.mID[i], mList.mElementName[i], mList.mPattURL[i]);
             markerList.addMarker(m);
         }
     }
@@ -49,5 +49,17 @@ function MarkersManager() {
     this.getMarkers = function() {
         console.log(( markerList.getLength() == 0) ? "Marker list empty":"Marker list ready");
         return markerList.getList();
+    }
+
+    this.searchForMarkers = function() {
+        var i;
+        var mList.getList();
+        for (i = 0; i < mList.getLength(); i++) {
+            createElement(mList[i].getMarkerID(), mList[i].getPatternURL());
+        }
+    }
+
+    var createElement(mID, pattURL) {
+        // Usar A-FRAME para agregar elementos a HTML
     }
 }

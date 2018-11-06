@@ -16,16 +16,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  **/
-function Marker(eID, eName, pattURL) {
-    var id = eID;
+function Marker(mID, eName, pattURL) {
+    var markerID = mID;
     var elementName = eName;
     var patternURL = pattURL;
 
-    this.setID = function(eID) {
-        id = eID;
+    this.setMarkerID = function(mID) {
+        markerID = mID;
     }
-    this.getID = function() {
-        return id;
+    this.getMarkerID = function() {
+        return markerID;
     }
 
     this.setElementName = function(eName) {
