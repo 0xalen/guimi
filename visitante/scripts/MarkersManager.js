@@ -1,3 +1,19 @@
+/** Copyright 2018 Franco Alejandro Trinidad
+ *                 María Luz Almada
+ *
+ * GuIMI is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with GuIMI. If not, see <http://www.gnu.org/licenses/>.
+ **/
 function MarkersManager() {
     var markerList = new MarkerList();
 
@@ -5,11 +21,6 @@ function MarkersManager() {
         var mList = requestMarkers();
         console.log(( mList == undefined) ? "Marker list empty":"Marker list ready");
         addMarkersToList(mList);
-    }
-
-    this.getMarkers = function() {
-        console.log(( markerList.length == 0) ? "Marker list empty":"Marker list ready");
-        return markerList.getList();
     }
 
     var requestMarkers = function() {
@@ -25,18 +36,16 @@ function MarkersManager() {
         return mList;
     }
 
-    // Marker handling
     var addMarkersToList = function(mList) {
         var i, m;
         for (i = 0; i < mList.length; i++ ) {
-            m = createMarker(mList.mID[i], mList.mElementName[i], mList.rPattURL[i]);
+            m = new Marker(mList.mID[i], mList.mElementName[i], mList.rPattURL[i]);
             markerList.addMarker(m);
         }
     }
 
-    var createMarker = function(eID, eName, eURL) {
-        var m = new Marker(mID, eName, mURL);
-        console.log(( m == undefined ) ? "Marker not created":"Marker created");
-        return m;
+    this.getMarkers = function() {
+        console.log(( markerList.length == 0) ? "Marker list empty":"Marker list ready");
+        return markerList.getList();
     }
 }
