@@ -40,14 +40,14 @@ function MarkersManager() {
 
     var addMarkersToList = function(mList) {
         var i, m;
-        for (i = 0; i < mList.length; i++ ) {
+        for (i = 0; i < mList.getLength(); i++ ) {
             m = new Marker(mList.mID[i], mList.mElementName[i], mList.rPattURL[i]);
             markerList.addMarker(m);
         }
     }
 
     this.getMarkers = function() {
-        console.log(( markerList.length == 0) ? "Marker list empty":"Marker list ready");
+        console.log(( markerList.getLength() == 0) ? "Marker list empty":"Marker list ready");
         return markerList.getList();
     }
 }
