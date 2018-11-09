@@ -40,18 +40,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 </head>
 <body>
-    <header class="header">
-        <h1 class="header__title">GuIMI</h1>
-        <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
-    </header>
-
-    <div class="loader">
-        <svg viewBox="0 0 32 32" width="32" height="32">
-            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-        </svg>
-    </div>
-
-    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
         <!-- <a-scene embedded arjs="debugUIEnabled: false;"> -->
         <!-- Content-->
 	    <a-assets>
@@ -76,6 +65,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
         <a-entity camera></a-entity>
     </a-scene>
 
+    <header class="header">
+        <h1 class="header__title">GuIMI</h1>
+        <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+    </header>
+
+    <div class="loader">
+        <svg viewBox="0 0 32 32" width="32" height="32">
+            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
+    </div>
 
 	<main class="main">
         <script src="visitante/scripts/app.js" async></script>
