@@ -1,3 +1,21 @@
+<!--
+GuIMI: Guía Interactiva del Museo de Informática (UNPA-UARG)
+Copyright (C) 2018 Franco Alejandro Trinidad
+                   María Luz Almada
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,100 +39,47 @@
     <meta name="msapplication-TileColor" content="#2657C0">
 
 </head>
-<body> <!-- style='margin : 0px; overflow: hidden; font-family: Monospace;'> -->
-
+<body>
     <header class="header">
         <h1 class="header__title">GuIMI</h1>
         <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
     </header>
 
-    <div class="scene">
-    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-         <!-- <a-scene embedded arjs="debugUIEnabled: false;"> -->
-            <!-- Content-->
-			<a-assets>
-	    		<img id="transpImage" src="visitante/images/icons/markerDetected.png">
-			</a-assets>
-			<a-image width="1" height="1" src="#transpImage">
-
-			<!-- Default marker -->
-            <a-marker preset="hiro" id='marker-hiro' registerevents>
-                <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
-				    <a-torus-knot radius='0.26' radius-tubular='0.05'>
-					    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
-				    </a-torus-knot>
-			    </a-box>
-            </a-marker>
-
-			<!-- Custom marker -->
-			<a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
-				<a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
-            </a-marker>
-
-            <a-entity camera></a-entity>
-        </a-scene>
+    <div class="loader">
+        <svg viewBox="0 0 32 32" width="32" height="32">
+            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
     </div>
+
+    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;'>
+        <!-- <a-scene embedded arjs="debugUIEnabled: false;"> -->
+        <!-- Content-->
+	    <a-assets>
+	        <img id="transpImage" src="visitante/images/icons/markerDetected.png">
+		</a-assets>
+		<a-image width="1" height="1" src="#transpImage">
+
+		<!-- Default marker -->
+        <a-marker preset="hiro" id='marker-hiro' registerevents>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+		        <a-torus-knot radius='0.26' radius-tubular='0.05'>
+		    	    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+			    </a-torus-knot>
+		    </a-box>
+        </a-marker>
+
+		<!-- Custom marker -->
+		<a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
+		    <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
+        </a-marker>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
 
 	<main class="main">
         <script src="visitante/scripts/app.js" async></script>
     </main>
-
-	<div id="contentGallery" class="contentGallery" style="display:none">
-       <!-- Container for the image gallery -->
-        <div class="container">
-
-          <div class="contentOption">
-            <div id="contentOp1" class="numbertext"></div>
-              <img src="img_woods_wide.jpg" style="width:100%">
-          </div>
-
-          <!-- Image text -->
-          <div class="caption-container">
-            <p id="caption"></p>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="row">
-            <div class="columnGallery">
-              <img class="demo cursor" src="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-01.png" style="width:100%" alt="" onclick="">
-            </div>
-            <div class="columnGallery">
-              <img class="demo cursor" src="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-02.png" style="width:100%" alt="" onclick="">
-            </div>
-            <div class="columnGallery">
-              <img class="demo cursor" src="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-03.png" style="width:100%" alt="" onclick="">
-            </div>
-          </div>
-        </div>
-	</div>
-
-	<div id="contentOptionsMenu" class="contentOptionsMenu" style="display:none">
-	  <p id="debug"></p>
-    <div class="row">
-		<!-- <div class="returnBtn">
-			<button id="goBack"></button>
-		</div> -->
-        <div class="columnOptions">
-          <img id="typeImage" src="" alt="Imagen" onclick="">
-        </div>
-        <div class="columnOptions">
-          <img id="typeText" src="" alt="Texto" onclick="">
-        </div>
-        <div class="columnOptions">
-          <img id="typeVideo" src="" alt="Video" onclick="">
-        </div>
-        <div class="columnOptions">
-          <img id="typeAudio" src="" alt="Audio" onclick="">
-        </div>
-      </div>
-    </div>
-	</div>
-
-  <div class="loader">
-    <svg viewBox="0 0 32 32" width="32" height="32">
-      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-    </svg>
-  </div>
 
 </body>
 </html> 
