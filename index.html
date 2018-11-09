@@ -27,10 +27,6 @@
         <h1 class="header__title">GuIMI</h1>
         <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
     </header>
-    
-	<main class="main">
-        <script src="visitante/scripts/app.js" async></script>
-    </main>
 
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
          <!-- <a-scene embedded arjs="debugUIEnabled: false;"> -->
@@ -56,6 +52,10 @@
 
             <a-entity camera></a-entity>
         </a-scene>
+
+	<main class="main">
+        <script src="visitante/scripts/app.js" async></script>
+    </main>
 
 	<div id="contentGallery" class="contentGallery" style="display:none">
        <!-- Container for the image gallery -->
