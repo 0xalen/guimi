@@ -65,5 +65,19 @@ function MarkersManager() {
 
     var createElement(mID, pattURL) {
         // Usar A-FRAME para agregar elementos a HTML
+        var sceneEl = document.querySelector('a-scene')
+
+        AFRAME.registerComponent('do-something-once-loaded', {
+          init: function () {
+            console.log('MarkerLoaded');
+          }
+        });
+
+        var entityEl = document.createElement('a-marker');
+        entityEl.setAttribute('do-something-once-loaded', '');
+
+        sceneEl.appendChild(entityEl);
+
+
     }
 }
