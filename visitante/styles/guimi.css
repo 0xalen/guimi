@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+
 /*header {
 
 }
@@ -9,6 +14,49 @@ body {
 .scene {
     float: left;
 
+}
+
+.side-nav{
+    height: 100%;
+    width: 0; /* width changed with js */
+    position: fixed;
+    z-index: 1001; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #2657C0;
+    opacity:0.99;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.side-nav a{
+  padding:10px 10px 10px 30px;
+  /*padding: 8px 8px 8px 32px;*/
+  text-decoration: none;
+  font-size: 25px;
+  /*font-size:22px;*/
+  color:#ccc;
+  /*color: #818181;*/
+  display: block;
+  transition: 0.3s;
+}
+
+.side-nav a:hover{
+  color:#fff;
+}
+
+.side-nav .btn-close{
+  position:absolute;
+  top:0;
+  right:22px;
+  font-size:36px;
+  margin-left:50px;
+}
+
+@media screen and (max-height: 450px) {
+    .side-nav {padding-top: 15px;}
+    .side-nav a {font-size: 18px;}
 }
 
 .leftPanel {
@@ -29,10 +77,6 @@ body {
 
 .infoScreen {
 
-}
-
-* {
-    box-sizing: border-box;
 }
 
 
