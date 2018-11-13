@@ -23,9 +23,23 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
     <link rel="canonical" href="https://0xalen.github.io/guimi/">
  <!--   <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>"GuIMI: Realidad Aumentada"</title>
+    <link rel="stylesheet" type="text/css" href="visitante/styles/inline.css">
+    <link rel="stylesheet" type="text/css" href="visitante/styles/guimi.css">
 
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+
+    <!-- GuIMI JS-->
+    <script src="visitante/scripts/VisitorManager.js"></script>
+    <script src="visitante/scripts/OptionsManager.js"></script>
+    <script src="visitante/scripts/MarkersManager.js"></script>
+    <script src="visitante/scripts/Marker.js"></script>
+    <script src="visitante/scripts/MarkerList.js"></script>
+    <script src="visitante/scripts/ContentManager.js"></script>
+    <script src="visitante/scripts/Content.js"></script>
+    <script src="visitante/scripts/ContentList.js"></script>
+    <script src="visitante/scripts/sidenav.js"></script>
+
 
 </head>
 <body>
@@ -43,7 +57,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 		        <a-torus-knot radius='0.26' radius-tubular='0.05'>
 		    	    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
 			    </a-torus-knot>
-		    </a-box>
+	    </a-box>
         </a-marker>
 
 		<!-- Custom marker -->
@@ -56,6 +70,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
         <a-entity camera></a-entity>
     </a-scene>
+
+	<main class="main"></main>
+        <script src="visitante/scripts/app.js" async></script>
+    </main>
 
 </body>
 </html> 
