@@ -25,7 +25,7 @@ function MarkersManager() {
 
     this.setMarkers = function() {
         var mList = requestMarkers();
-        console.log(( mList == undefined) ? "Marker list empty":"Marker list ready. Type " + typeof(mList) + "");
+        console.log(( mList == undefined) ? "Marker list empty":"Marker list ready.");
         addMarkersToList(mList);
     }
 
@@ -34,7 +34,7 @@ function MarkersManager() {
         // Process JSON
         // var mList = JSON.parse(sentData);
         var mList = {
-                    "mID":[ "A0001", "A0002", "A0002", "A0001", "A0002" ],
+                    "mID":[ "A0001", "A0002", "A0003", "A0004", "A0005" ],
                     "mElementName":[ "Apple Mouse", "IBM", "RAM", "Arcade", "HD" ],
                     "mPattURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0002.patt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0003.patt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0004.patt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0005.patt"]
         }
@@ -44,10 +44,15 @@ function MarkersManager() {
 
     var addMarkersToList = function(mList) {
         var i, m;
-        for (i in mList) {
+        //var debugText = "mList.mID[0] : "+ mList.mID[0] + "<br> mList.mElementName[0]: " + mList.mElementName[0] + "<br>mList.mPattURL[0]: " + mList.mPattURL[0] ;// DEBUG
+        //var debugText = "mID: " + mList.mID.length;
+        for (i = 0; i < mList.mID.length; i++) {
             m = new Marker(mList.mID[i], mList.mElementName[i], mList.mPattURL[i]);
             markerList.addMarker(m);
         }
+        console.log("markerList: " + typeof markerList.getList());              //DEBUG
+        var debugText = "markerList.getList()[0].getMarkerID() : "+ markerList.getList()[0].getMarkerID() + "<br> markerList.getList()[0].getElementName(): " + markerList.getList()[0].getElementName() + "<br> markerList.getList()[0].getPatternURL(): " + markerList.getList()[0].getPatternURL() ;// DEBUG
+        document.getElementById("debugP").innerHTML = debugText;              // DEBUG
     }
 
     this.getMarkers = function() {
