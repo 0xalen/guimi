@@ -63,7 +63,7 @@ function MarkersManager() {
     this.searchForMarkers = function() {
         var i;
         var mList = markerList.getList();
-        for (i = 0; i < mList.getLength(); i++) {
+        for (i = 0; i < mList.length; i++) {
             createElement(mList[i].getMarkerID(), mList[i].getPatternURL());
         }
     }

@@ -105,7 +105,7 @@
     // Load Markers
 	app.visitor.loadMarkers();
 
-    //visitor.identifyScene();
+    app.visitor.identifyScene();
 
     //visitor.processScene();
 
