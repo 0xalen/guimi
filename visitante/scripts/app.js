@@ -16,16 +16,15 @@
 
 (function() {
     'use strict';
- 
+
     var app = {
         isLoading: true,
-        spinner: document.querySelector('.loader'),
+//        spinner: document.querySelector('.loader'),
         container: document.querySelector('.main'),
         addDialog: document.querySelector('.dialog-container'),
 		markersLoaded: false,
 		visitorManager: null,
 
-		,
     };
   
     /**********************************************************
@@ -85,13 +84,13 @@
 
     /*  METHODS */
     // Loader
-     var checkLoader = function() {
+  /*   var checkLoader = function() {
         if (app.isLoading) {
           app.spinner.setAttribute('hidden', true);
           app.container.removeAttribute('hidden');
           app.isLoading = false;
         }
-    }
+    }*/
 
     /**********************************************************
     *
@@ -99,12 +98,12 @@
     *
     **********************************************************/
     // Page loader
-    checkLoader();
+    //checkLoader();
 
 	/**************** AUGMENTED REALITY *********************/
-	visitor = new VisitorManager();
+	app.visitor = new VisitorManager();
     // Load Markers
-	visitor.loadMarkers();
+	app.visitor.loadMarkers();
 
     //visitor.identifyScene();
 

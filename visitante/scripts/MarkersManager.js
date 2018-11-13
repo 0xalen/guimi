@@ -25,7 +25,7 @@ function MarkersManager() {
 
     this.setMarkers = function() {
         var mList = requestMarkers();
-        console.log(( mList == undefined) ? "Marker list empty":"Marker list ready");
+        console.log(( mList == undefined) ? "Marker list empty":"Marker list ready. Type " + typeof(mList) + "");
         addMarkersToList(mList);
     }
 
@@ -44,7 +44,7 @@ function MarkersManager() {
 
     var addMarkersToList = function(mList) {
         var i, m;
-        for (i = 0; i < mList.getLength(); i++ ) {
+        for (i in mList) {
             m = new Marker(mList.mID[i], mList.mElementName[i], mList.mPattURL[i]);
             markerList.addMarker(m);
         }
@@ -57,27 +57,66 @@ function MarkersManager() {
 
     this.searchForMarkers = function() {
         var i;
-        var mList.getList();
+        var mList = markerList.getList();
         for (i = 0; i < mList.getLength(); i++) {
             createElement(mList[i].getMarkerID(), mList[i].getPatternURL());
         }
     }
 
-    var createElement(mID, pattURL) {
-        // Usar A-FRAME para agregar elementos a HTML
-        var sceneEl = document.querySelector('a-scene')
+    var createElement = function(markerID, pattURL) {
+        var sceneEl = document.querySelector("a-scene");
 
-        AFRAME.registerComponent('do-something-once-loaded', {
-          init: function () {
-            console.log('MarkerLoaded');
-          }
-        });
+        var markerEl = document.createElement('a-marker');
+        markerEl.setAttribute("id", markerID);
+        markerEl.setAttribute("preset", "pattern");
+        markerEl.setAttribute("type", "pattern");
+        markerEl.setAttribute("url", pattURL);
+        markerEl.setAttribute("registerevents", "");
 
-        var entityEl = document.createElement('a-marker');
-        entityEl.setAttribute('do-something-once-loaded', '');
+        sceneEl.insertAdjacentElement('beforeend', markerEl);
 
-        sceneEl.appendChild(entityEl);
+	    addMarkerIndicator(markerID);
+
+    }
+
+    var addMarkerIndicator = function(markerID) {
+        var markerEl = document.getElementById(markerID);
+	    document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
+
+	    var entityEl = document.createElement('a-entity');
+	    var scaleX = "0.1";
+	    var scaleY = "0.2";
+	    var scaleZ = "0.2";
+	    var scale = document.createAttribute("scale");
+	    scale.value = scaleX +  " " + scaleY + " " + scaleZ;
+	    entityEl.setAttributeNode(scale);
+
+	    var coneEl = document.createElement('a-cone');
+
+        var posX = "0";
+        var posY = "6";
+        var posZ = "2";
+
+        var pos = document.createAttribute("position");
+        pos.value = posX +  " " + posY + " " + posZ;
+        coneEl.setAttributeNode(pos);
 
 
+        var rotX = "90";
+        var rotY = "0";
+        var rotZ = "0";
+
+        var rot = document.createAttribute("rotation");
+        rot.value = rotX +  " " + rotY + " " + rotZ;
+        coneEl.setAttributeNode(rot);
+
+        markerEl.insertAdjacentElement('beforeend', entityEl);
+
+        var mat = document.createAttribute("material");
+        mat.value = "opacity: 0.5; side:double; color:red";
+
+        coneEl.setAttributeNode(mat );
+
+        entityEl.insertAdjacentElement('beforeend', coneEl);
     }
 }
