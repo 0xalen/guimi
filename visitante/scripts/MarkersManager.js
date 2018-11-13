@@ -92,9 +92,13 @@ function MarkersManager() {
 	    var scaleX = "0.1";
 	    var scaleY = "0.2";
 	    var scaleZ = "0.2";
-	    var scale = document.createAttribute("scale");
-	    scale.value = scaleX +  " " + scaleY + " " + scaleZ;
-	    entityEl.setAttributeNode(scale);
+	    var scaleAtt = document.createAttribute("scale");
+	    scaleAtt.value = scaleX +  " " + scaleY + " " + scaleZ;
+	    entityEl.setAttributeNode(scaleAtt);
+
+	    var visibility = document.createAttribute("visible");
+	    visibility.value = true;
+	    entityEl.setAttributeNode(visibility);
 
 	    var coneEl = document.createElement('a-cone');
 
