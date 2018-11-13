@@ -20,7 +20,7 @@ function MarkerList() {
     var markerList = [];
 
     this.getList = function() {
-        return markerList();
+        return markerList;
     }
 
     this.getLength = function() {
