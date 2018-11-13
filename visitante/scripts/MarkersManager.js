@@ -50,9 +50,9 @@ function MarkersManager() {
             m = new Marker(mList.mID[i], mList.mElementName[i], mList.mPattURL[i]);
             markerList.addMarker(m);
         }
-        console.log("markerList: " + typeof markerList.getList());              //DEBUG
+        //console.log("markerList: " + typeof markerList.getList());              //DEBUG
         var debugText = "markerList.getList()[0].getMarkerID() : "+ markerList.getList()[0].getMarkerID() + "<br> markerList.getList()[0].getElementName(): " + markerList.getList()[0].getElementName() + "<br> markerList.getList()[0].getPatternURL(): " + markerList.getList()[0].getPatternURL() ;// DEBUG
-        document.getElementById("debugP").innerHTML = debugText;              // DEBUG
+        //document.getElementById("debugP").innerHTML = debugText;              // DEBUG
     }
 
     this.getMarkers = function() {
