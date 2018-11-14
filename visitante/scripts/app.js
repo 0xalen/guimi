@@ -107,7 +107,7 @@
 
     app.visitor.identifyScene();
 
-    visitor.processScene();
+    app.visitor.processScene();
 
     //visitor.vizualizeContent();
 

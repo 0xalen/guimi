@@ -28,12 +28,13 @@ function OptionsManager(mID) {
     var requestOptions = function() {
         // Request options for element with ID = elementID
         // Process JSON file
-        var opt = {
+        var oList = {
                     "images": 3,
                     "texts": 0,
                     "videos": 0,
                     "audios": 0
                 };
+
         return oList;
     }
 
