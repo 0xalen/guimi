@@ -1,5 +1,7 @@
 
 
+
+
 /* Option menu events */
     document.getElementById("typeImage").addEventListener("click", function() {
         console.log('Image content selected');

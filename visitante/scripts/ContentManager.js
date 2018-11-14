@@ -64,4 +64,154 @@ function ContentManager(mID, cType) {
     this.displayContent = function() {
         // reemplazar contentName y contentURL en el html correspondiente
     }
+
+    var addImageElement = function() {
+        /*
+        <a-image width="1" height="1" src="#transpImage"></a-image>
+        */
+
+        var markerEl = document.getElementById(markerID);
+	    //document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
+
+	    var entityEl = document.createElement('a-entity');
+
+	    var scaleX = "0.1";
+	    var scaleY = "0.2";
+	    var scaleZ = "0.2";
+	    var scaleAtt = document.createAttribute("scale");
+	    scaleAtt.value = scaleX +  " " + scaleY + " " + scaleZ;
+	    entityEl.setAttributeNode(scaleAtt);
+
+	    var visibility = document.createAttribute("visible");
+	    visibility.value = true;
+	    entityEl.setAttributeNode(visibility);
+
+	    var coneEl = document.createElement('a-cone');
+
+        var posX = "0";
+        var posY = "6";
+        var posZ = "2";
+
+        var pos = document.createAttribute("position");
+        pos.value = posX +  " " + posY + " " + posZ;
+        coneEl.setAttributeNode(pos);
+
+        var rotX = "90";
+        var rotY = "0";
+        var rotZ = "0";
+
+        var rot = document.createAttribute("rotation");
+        rot.value = rotX +  " " + rotY + " " + rotZ;
+        coneEl.setAttributeNode(rot);
+
+        markerEl.insertAdjacentElement('beforeend', entityEl);
+
+        var mat = document.createAttribute("material");
+        mat.value = "opacity: 0.5; side:double; color:red";
+
+        coneEl.setAttributeNode(mat );
+
+        entityEl.insertAdjacentElement('beforeend', coneEl);
+    }
+
+    /***************************** IMAGE **************************************/
+    var displayImage = function(cName, cURL) {
+        var markerEl = document.getElementById(markerID);
+
+        // Replace image source with the element's cURL
+        markerEl.src = cURL;
+
+        displayName(cName);
+    }
+    var addImage = function() {
+        // Query a-marker
+        var markerEl = document.getElementById(markerID);
+
+        // Create image Element
+        var imageEl = document.createElement('a-image');
+        // POSITION
+        var posX = "0";
+        var posY = "1";
+        var posZ = "0";
+
+        var pos = document.createAttribute("position");
+        pos.value = posX +  " " + posY + " " + posZ;
+        imageEl.setAttributeNode(pos);
+        // ROTATION
+        var rotX = "-90";
+        var rotY = "0";
+        var rotZ = "0";
+
+        var rotEL = document.createAttribute("rotation");
+        rotEl.value = rotX +  " " + rotY + " " + rotZ;
+        imageEl.setAttributeNode(rotEl);
+
+        // Add image to to marker
+        markerEl.insertAdjacentElement('beforeend', imageEl);
+    }
+
+    /***************************** TEXT ***************************************/
+    var displayText = function(cName, cURL) {
+        var valEl = document.createAttribute("value");
+        valEl.value = cURL;
+
+        displayName(cName);
+    }
+    var addTextElement = function() {
+        // Query a-marker
+        var markerEl = document.getElementById(markerID);
+
+        // Create text Element
+        var textEl = document.createElement('a-text');
+        // POSITION
+        var posX = "0";
+        var posY = "1";
+        var posZ = "0";
+        var pos = document.createAttribute("position");
+        pos.value = posX +  " " + posY + " " + posZ;
+        textEl.setAttributeNode(pos);
+
+        // ROTATION
+        var rotX = "-90";
+        var rotY = "0";
+        var rotZ = "0";
+        var rotEL = document.createAttribute("rotation");
+        rotEl.value = rotX +  " " + rotY + " " + rotZ;
+        textEl.setAttributeNode(rotEl);
+
+        // Add image to to marker
+        markerEl.insertAdjacentElement('beforeend', textEl);
+    }
+
+    var displayName = function(cName) {
+        // Query a-marker
+        var markerEl = document.getElementById(markerID);
+
+        // Replace image source with the element's cURL
+        markerEl.src = cURL;
+
+        // Create text Element
+        var textEl = document.createElement('a-text');
+        // POSITION
+        var posX = "0";
+        var posY = "2";
+        var posZ = "2";
+        var pos = document.createAttribute("position");
+        pos.value = posX +  " " + posY + " " + posZ;
+        textEl.setAttributeNode(pos);
+
+        // ROTATION
+        var rotX = "-90";
+        var rotY = "0";
+        var rotZ = "0";
+        var rotEL = document.createAttribute("rotation");
+        rotEl.value = rotX +  " " + rotY + " " + rotZ;
+        textEl.setAttributeNode(rotEl);
+
+        var valEl = document.createAttribute("value");
+        valEl.value = cName;
+
+        // Add image to to marker
+        markerEl.insertAdjacentElement('beforeend', textEl);
+    }
 }

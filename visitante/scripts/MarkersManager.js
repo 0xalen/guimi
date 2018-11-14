@@ -83,7 +83,7 @@ function MarkersManager() {
 	    addMarkerIndicator(markerID);
 
     }
-
+   /** TO-DO: DOCUMENT NEW METHOD: ADD MARKER INDICATOR **/
     var addMarkerIndicator = function(markerID) {
         var markerEl = document.getElementById(markerID);
 	    document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
@@ -105,19 +105,16 @@ function MarkersManager() {
         var posX = "0";
         var posY = "6";
         var posZ = "2";
-
         var pos = document.createAttribute("position");
         pos.value = posX +  " " + posY + " " + posZ;
         coneEl.setAttributeNode(pos);
 
-
         var rotX = "90";
         var rotY = "0";
         var rotZ = "0";
-
-        var rot = document.createAttribute("rotation");
-        rot.value = rotX +  " " + rotY + " " + rotZ;
-        coneEl.setAttributeNode(rot);
+        var rotEl = document.createAttribute("rotation");
+        rotEl.value = rotX +  " " + rotY + " " + rotZ;
+        coneEl.setAttributeNode(rotEl);
 
         markerEl.insertAdjacentElement('beforeend', entityEl);
 
@@ -128,4 +125,27 @@ function MarkersManager() {
 
         entityEl.insertAdjacentElement('beforeend', coneEl);
     }
+
+    /** TO-DO: DOCUMENT NEW METHOD: HIDE MARKERS **/
+    this.hideUnselectedMarkers = function(selectedMarker) {
+        var unselectedMarkersEl = document.querySelectorAll("a-marker");
+        var i;
+        for (i = 0; i < unselectedMarkersEl.length; i++){
+        	if (unselectedMarkersEl[i].id == selectedMarker) {
+            	continue;
+            }
+            selectedMarkerEl[i].setAttribute('visible', false);
+        }
+    }
+    /** TO-DO: DOCUMENT NEW METHOD: DISPLAY MARKERS **/
+    this.displayAllMarkers = function() {
+       var markersEl = document.querySelectorAll("a-marker");
+        var i;
+        for (i = 0; i < markersEl.length; i++){
+        	if (markersEl[i].visible == false) {
+            	selectedMarkerEl[i].setAttribute('visible', true);
+            }
+        }
+    }
+
 }
