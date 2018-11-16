@@ -89,6 +89,7 @@ function ContentManager(mID, cType) {
         if (cType === 0) {
             addImageElement("entityID");
         } else if (cType === 1) {
+            console.log("Add text element");              //DEBUG
             addTextElement("entityID");
         } else if (cType === 2) {
             addVideoElement("entityID");
