@@ -52,6 +52,13 @@ function ContentManager(mID, cType) {
                             "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0003_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0003_I-02.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0003_I-03.png"]
                 }
             }
+        } else  if (contentType == 1 ) {
+            if (mID == 'A0001') {
+                var cList = {
+                            "cName":[ "CA0001_T-01", "CA0001_T-02" ],
+                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/txt/CA0001_T-01.txt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/txt/CA0001_T-02.txt"]
+                }
+            }
         }
         console.log("markerID: " + mID);
         return cList;
@@ -193,7 +200,8 @@ function ContentManager(mID, cType) {
     /***************************** TEXT ***************************************/
     var setText = function(cName, cURL) {
         var textEl = document.getElementById(contentID);
-        textEl.setAttribute("value", cURL);
+      //  textEl.setAttribute("value", cURL);
+      textEl.setAttribute("value", cName);       //TEMP DEBUG
 
   //      displayName(cName);
     }
@@ -213,12 +221,10 @@ function ContentManager(mID, cType) {
         textEl.setAttributeNode(geometryAtt);
 
         contentID = "textAsset" + markerID;
-        var srcAtt = document.createAttribute("src");
-        srcAtt.value = "";
-        entityEl.setAttributeNode(srcAtt);
+        var valueAtt = document.createAttribute("value");
+        valueAtt.value = "";
+        entityEl.setAttributeNode(valueAtt);
 
-
-        // Add image to to marker
         markerEl.insertAdjacentElement('beforeend', textEl);
     }
 

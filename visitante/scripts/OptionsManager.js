@@ -31,7 +31,7 @@ function OptionsManager(mID) {
         if (markerID == 'A0001') {
             var oList = {
                         "images": 1,
-                        "texts": 0,
+                        "texts": 2,
                         "videos": 0,
                         "audios": 0
                     };
