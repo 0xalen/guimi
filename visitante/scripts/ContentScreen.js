@@ -253,8 +253,9 @@ function ContentScreen(cList, mainApp, cManager) {
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
 
-        if (typeof contentList[slideIndex] !== 'undefined'){
-            cm.displayContent(contentList[slideIndex].getContentName(), contentList[slideIndex].getContentURL());
+        console.log("slideIndex: " + slideIndex);
+        if (typeof contentList[slideIndex - 1] !== 'undefined'){
+            cm.displayContent(contentList[slideIndex - 1].getContentName(), contentList[slideIndex - 1].getContentURL());
         }
     }
 
