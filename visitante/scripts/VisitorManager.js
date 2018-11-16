@@ -65,15 +65,16 @@ function VisitorManager(mainApp) {
             cManager.setContent();
         }
         if (typeof cScreen === 'undefined') {
-            cScreen = new ContentScreen(cManager.getContent(), app);
+            cManager.prepareContent();
+            cScreen = new ContentScreen(cManager.getContent(), app, cManager);
         }
         cScreen.displayContentScreen();
     }
 
     this.destroyContentScreen = function() {
-        console.log("DEBUG: Destroy content(4)");
+        console.log("DEBUG: Destroy content(3)");
         cScreen.closeContentScreen();
-        console.log("DEBUG: Destroy content(5)");
+        console.log("DEBUG: Destroy content(4)");
         oScreen.closeOptionsScreen();
         cManager = undefined;
         cScreen = undefined;
