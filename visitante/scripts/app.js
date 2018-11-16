@@ -25,8 +25,9 @@
 		markersLoaded: false,
 		visitorManager: null,
 		markerCounter: 0,
-		selectedMarker: "",
-
+		selectedMarker: undefined,
+		viewingOptions: false,
+		viewingContent: false,
     };
   
     /**********************************************************
@@ -78,13 +79,13 @@
             console.log('Process Marker (TEST)');
             app.markerCounter++;
             app.processMarker('A0002');
-            console.log('Marker counter: ' + app.markerCounter);
+            console.log('Marker counter: ' + app.markerCounter);    //DEBUG
     });
     document.getElementById("debugBtn3").addEventListener("click", function() {
             console.log('Process Marker (TEST)');
             app.markerCounter++;
             app.processMarker('A0003');
-            console.log('Marker counter: ' + app.markerCounter);
+            console.log('Marker counter: ' + app.markerCounter);    //DEBUG
     });
 
     /**********************************************************
@@ -115,7 +116,16 @@
           app.isLoading = false;
         }
     }*/
-
+    app.destroyContent = function() {
+        app.visitor.destroyContentScreen();
+        app.visitor.processScene(app.selectedMarker, app);
+    }
+    app.destroyOptions = function() {
+        app.markerCounter = 0;
+        console.log('Marker counter: ' + app.markerCounter);        //DEBUG
+        app.visitor.destroyOptionsScreen();
+        app.selectedMarker = undefined;
+    }
     /**********************************************************
     *
     * MAIN
@@ -125,7 +135,7 @@
     //checkLoader();
 
 	/**************** AUGMENTED REALITY *********************/
-	app.visitor = new VisitorManager();
+	app.visitor = new VisitorManager(app);
     // Load Markers
 	app.visitor.loadMarkers();
 
@@ -133,12 +143,25 @@
 
    app.processMarker = function(mID) {
         if (app.markerCounter === 1) {
-            app.visitor.processScene(mID, app);
             app.selectedMarker = mID;
+            app.viewingOptions = true;
+            app.visitor.processScene(app.selectedMarker, app);
+        } else {
+            console.log("app.viewingOptions === true: " + (app.viewingOptions === true));
+            console.log("app.viewingContent === true: " + (app.viewingContent === true));
+            app.markerCounter = 0;
+            console.log("DEBUG: Destroy content(1)");
+            if (app.viewingContent === true) {
+                console.log("DEBUG: Destroy content(2)");
+                app.visitor.destroyContentScreen();
+            } else if (app.viewingOptions === true) {
+                app.visitor.destroyOptionsScreen();
+            }
         }
     }
 
     app.processOption = function(cType) {
+        app.viewingContent = true;
         app.visitor.vizualizeContent(app.selectedMarker, cType);
     }
 

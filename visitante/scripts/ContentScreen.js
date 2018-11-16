@@ -1,6 +1,7 @@
-function ContentScreen(cList) {
+function ContentScreen(cList, mainApp) {
     var contentList = cList;
     var slideIndex = 1;
+    var app = mainApp;
 
     this.displayContentScreen = function() {
         showGallery();
@@ -9,11 +10,18 @@ function ContentScreen(cList) {
         showSlides(slideIndex);
     }
 
+    this.closeContentScreen = function() {
+        //console.log("Close content screen");              //DEBUG
+        closeContentScreen();
+    }
+
     var closeContentScreen = function() {
+        console.log("Close content screen (private)");
         var cScreenDiv = document.getElementById("contentScreenID");
         console.log("Child to remove: " + cScreenDiv.childNodes[0]);        //DEBUG
-        cScreenDiv.removeChild(cScreenDiv.childNodes[1]);
-        cScreenDiv.removeChild(cScreenDiv.childNodes[0]);
+        while (cScreenDiv.childNodes[0]) {
+            cScreenDiv.removeChild(cScreenDiv.childNodes[0]);
+        }
         hideGallery();
     }
 
@@ -172,11 +180,11 @@ function ContentScreen(cList) {
         var spanEl = document.createElement('span');
 
         var idAtt = document.createAttribute('id');
-        idAtt.value = "closeBtn";
+        idAtt.value = "closeContentBtn";
         spanEl.setAttributeNode(idAtt);
 
         var classAtt = document.createAttribute('class');
-        classAtt.value = "btn-close";
+        classAtt.value = "closebtn";
         spanEl.setAttributeNode(classAtt);
 
         var onclickAtt = document.createAttribute('onclick');
@@ -209,8 +217,9 @@ function ContentScreen(cList) {
             });
         }
 
-        document.getElementById("closeBtn").addEventListener("click", function() {
-            console.log('Close menu');
+        document.getElementById("closeContentBtn").addEventListener("click", function() {
+            console.log('Close content screen');
+            app.destroyContent();
             closeContentScreen();      //TEMP FOR DEBUG
         });
     }
