@@ -89,7 +89,6 @@ function ContentManager(mID, cType) {
         if (cType === 0) {
             addImageElement("entityID");
         } else if (cType === 1) {
-            console.log("Add text element");              //DEBUG
             addTextElement("entityID");
         } else if (cType === 2) {
             addVideoElement("entityID");
@@ -200,19 +199,20 @@ function ContentManager(mID, cType) {
 
     /***************************** TEXT ***************************************/
     var setText = function(cName, cURL) {
-        var textEl = document.getElementById(contentID);
+      var textEl = document.getElementById(contentID);
       //  textEl.setAttribute("value", cURL);
       textEl.setAttribute("value", cName);       //TEMP DEBUG
 
   //      displayName(cName);
     }
-    var addTextElement = function() {
+    var addTextElement = function(parentEntityID) {
         // Query a-marker
-        var markerEl = document.getElementById(markerID);
+        var parentEl = document.getElementById(parentEntityID);
 
         // Create text Element
         var textEl = document.createElement('a-text');
 
+        contentID = "textAsset" + markerID;
         var idAtt = document.createAttribute('id');
         idAtt.value = contentID;
         textEl.setAttributeNode(idAtt);
@@ -221,12 +221,11 @@ function ContentManager(mID, cType) {
         geometryAtt.value = "geometry";
         textEl.setAttributeNode(geometryAtt);
 
-        contentID = "textAsset" + markerID;
         var valueAtt = document.createAttribute("value");
         valueAtt.value = "";
-        entityEl.setAttributeNode(valueAtt);
+        textEl.setAttributeNode(valueAtt);
 
-        markerEl.insertAdjacentElement('beforeend', textEl);
+        parentEl.insertAdjacentElement('beforeend', textEl);
     }
 
     var displayName = function(cName) {
