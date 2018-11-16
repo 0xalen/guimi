@@ -76,7 +76,6 @@ function VisitorManager(mainApp) {
         cScreen.closeContentScreen();
         cManager.hideContent();
         console.log("DEBUG: Destroy content(4)");
-        oScreen.closeOptionsScreen();
         cManager = undefined;
         cScreen = undefined;
     }

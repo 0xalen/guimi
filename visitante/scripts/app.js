@@ -157,7 +157,8 @@
                 console.log("DEBUG: Destroy content(2)");
                 app.viewingContent = false;
                 app.visitor.destroyContentScreen();
-            } else if (app.viewingOptions === true) {
+            }
+            if (app.viewingOptions === true) {
                 app.viewingOptions = false;
                 app.visitor.destroyOptionsScreen();
             }
