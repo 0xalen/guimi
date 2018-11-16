@@ -38,9 +38,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
     <script src="visitante/scripts/ContentManager.js"></script>
     <script src="visitante/scripts/Content.js"></script>
     <script src="visitante/scripts/ContentList.js"></script>
-    <script src="visitante/scripts/sidenav.js"></script>
-
-
+    <script src="visitante/scripts/OptionsScreen.js"></script>
+    <script src="visitante/scripts/ContentScreen.js"></script>
 </head>
 <body>
     <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
@@ -76,15 +75,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
         <script src="visitante/scripts/app.js" async></script>
     </main>
 
-    <div id="optionsScreenID" class="options">
+    <div id="optionsScreenID" class="options" style="display:none">
 
     </div>
-    <div id="contentScreenID" class="content">
+    <div id="contentScreenID" class="content" style="display:none">
 
     </div>
 
     <div id="divDebug">
 		<p id="debugP"></p>
+        <button id="debugBtn" onclick="">TEMP DEBUG</button>
         <!-- document.getElementById("debugP").innerHTML = ;              /* DEBUG*/-->
 	</div>
 </body>

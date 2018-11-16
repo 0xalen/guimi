@@ -24,6 +24,8 @@
         addDialog: document.querySelector('.dialog-container'),
 		markersLoaded: false,
 		visitorManager: null,
+		markerCounter: 0,
+		selectedMarker: "",
 
     };
   
@@ -40,28 +42,38 @@
             marker.addEventListener('markerFound', function() {
                 var markerID = marker.id;
                 console.log('markerFound', markerId);
-                // Cuando se encuentra un marcador
-                openOptionsMenu(markerID);
+                selectedMarkers++;
+                setTimeout(function() {
+                        processMarker(markerId)
+                        }, 2000);
             });
             marker.addEventListener('markerLost', function() {
                 var markerId = marker.id;
                 console.log('markerLost', markerId);
                 // Cuando se pierde un marcador
-                closeOptionsMenu();
+                selectedMarkers++;
+                setTimeout(function() {
+                        processMarker(markerId)
+                        }, 2000);
             });
         }
-    }); */
-    /**
-        var m = document.querySelector("a-marker")
-        m.addEventListener("markerFound", (e)=>{
-           console.log("found")
-        })
+    });
+    */
+    var m = document.querySelector("a-marker");
+    m.addEventListener("markerFound", (e)=>{
+        console.log("found")
+    })
 
-        m.addEventListener("markerLost", (e)=>{
-           console.log("lost")
-        })
+    m.addEventListener("markerLost", (e)=>{
+        console.log("lost")
+    })
 
-    **/
+    document.getElementById("debugBtn").addEventListener("click", function() {
+            console.log('Process Marker (TEST)');
+            app.markerCounter++;
+            app.processMarker('A0003');
+            console.log('Marker counter: ' + app.markerCounter);
+        });
 
     /**********************************************************
     *
@@ -107,9 +119,17 @@
 
     app.visitor.identifyScene();
 
-    app.visitor.processScene();
+   app.processMarker = function(mID) {
+        if (app.markerCounter === 1) {
+            app.visitor.processScene(mID, app);
+            app.selectedMarker = mID;
+        }
+    }
 
-    //visitor.vizualizeContent();
+    app.processOption = function(cType) {
+        app.visitor.vizualizeContent(app.selectedMarker, cType);
+    }
+
 
 	// Service worker
 	if ('serviceWorker' in navigator) {
