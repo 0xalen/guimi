@@ -48,7 +48,7 @@ function ContentManager(mID, cType) {
             if (mID == 'A0003') {
                 var cList = {
                             "cName":[ "CA0003_I-01", "CA0003_I-02", "CA0003_I-03" ],
-                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-02.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-03.png"]
+                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0003_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0003_I-02.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0003_I-03.png"]
                 }
             }
         }

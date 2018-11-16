@@ -28,7 +28,7 @@ function ContentScreen(cList) {
     var openContentScreen = function() {
         var contentDiv = document.getElementById("contentScreenID");
         addSpanClose("contentScreenID");
-        addDiv("contentScreenID", "slideshow-container", "containerID", " ");
+        addDiv("contentScreenID", "slideshow-container w3-mobile w3-row", "containerID", " ");
         var cCounter = 0;
         var contentDivID = "contentDiv" + cCounter;
         var imageID = "imageID" + cCounter;
@@ -51,7 +51,7 @@ function ContentScreen(cList) {
         addA("containerID", "prev", '❮');
         addA("containerID", "next", '❯');
 
-        addDiv("contentScreenID", " ", "dotID", "text-align:center");
+        addDiv("containerID", " ", "dotID", "text-align:center");
         cCounter = 0;
         var dotID = "dotID" + cCounter;
         for (cCounter = 0; cCounter < contentList.length; cCounter++) {

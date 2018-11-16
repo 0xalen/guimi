@@ -68,6 +68,7 @@ function MarkersManager() {
         }
     }
 
+// addA(markerID, "markerBtn", eName);
     var createElement = function(markerID, pattURL) {
         var sceneEl = document.querySelector("a-scene");
 
@@ -81,7 +82,6 @@ function MarkersManager() {
         sceneEl.insertAdjacentElement('beforeend', markerEl);
 
 	    addMarkerIndicator(markerID);
-
     }
    /** TO-DO: DOCUMENT NEW METHOD: ADD MARKER INDICATOR **/
     var addMarkerIndicator = function(markerID) {
@@ -124,6 +124,29 @@ function MarkersManager() {
         coneEl.setAttributeNode(mat );
 
         entityEl.insertAdjacentElement('beforeend', coneEl);
+    }
+
+    var addA = function(parentDivID, aClass, aText) {
+        var divEl = document.getElementById(parentDivID);
+
+        var aEl = document.createElement('a');
+
+        var idAtt = document.createAttribute('id');
+        idAtt.value = aClass;
+        aEl.setAttributeNode(idAtt);
+
+        var classAtt = document.createAttribute('class');
+        classAtt.value = aClass;
+        aEl.setAttributeNode(classAtt);
+
+        var onclickAtt = document.createAttribute('onclick');
+        onclickAtt.value = "";
+        aEl.setAttributeNode(onclickAtt);
+
+        var aTextEl = document.createTextNode(aText);
+        aEl.appendChild(aTextEl);
+
+        divEl.insertAdjacentElement('beforeend', aEl);
     }
 
     /** TO-DO: DOCUMENT NEW METHOD: HIDE MARKERS **/
