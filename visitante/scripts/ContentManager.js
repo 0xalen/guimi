@@ -114,9 +114,9 @@ function ContentManager(mID, cType) {
         entityEl.setAttributeNode(idAtt);
 
         // SCALE
-        var scaleX = "5";
-	    var scaleY = "10";
-	    var scaleZ = "10";
+        var scaleX = "2";
+	    var scaleY = "4";
+	    var scaleZ = "4";
 	    var scaleAtt = document.createAttribute("scale");
 	    scaleAtt.value = scaleX +  " " + scaleY + " " + scaleZ;
 	    entityEl.setAttributeNode(scaleAtt);
