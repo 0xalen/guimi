@@ -19,7 +19,9 @@
 function VisitorManager() {
     var mManager;
     var oManager;
+    var oScreen;
     var cManager;
+    var cScreen;
 
     this.checkMarkersLoaded = function() {
         if (mManager == null) {
@@ -31,19 +33,39 @@ function VisitorManager() {
     this.loadMarkers = function() {
         mManager = new MarkersManager()
         mManager.setMarkers();
+
+        console.log("mManager.getMarkers(): " + mManager.getMarkers());   //DEBUG
+        if (mManager.getMarkers() == null ) {
+            loadMarkers();
+        }
     }
 
     this.identifyScene = function() {
         mManager.searchForMarkers();
     }
 
-    this.processScene = function(markerID) {
+    this.processScene = function(markerID, app) {
+        var debugT = "Marker ID: " + markerID;                  //DEBUG
+        document.getElementById("debugP").innerHTML = debugT;   //DEBUG
         oManager = new OptionsManager(markerID);
         oManager.setOptions();
+
+        if (oManager.getOptions() !== null) {
+            oScreen = new OptionsScreen(oManager.getOptions(), app);
+            oScreen.displayOptionsScreen();
+        } else {
+
+        }
     }
+
     // If none specified, content Type defaults to image
     this.vizualizeContent = function(markerID, contentType = 0) {
-        cManager = new ContentManager();
-        oManager.setContent();
+        cManager = new ContentManager(markerID, contentType);
+        cManager.setContent();
+
+        if (cManager.getContent() !== null) {
+            cScreen = new ContentScreen(cManager.getContent());
+            cScreen.displayContentScreen();
+        }
     }
 }

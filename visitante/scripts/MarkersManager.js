@@ -51,7 +51,7 @@ function MarkersManager() {
             markerList.addMarker(m);
         }
         //console.log("markerList: " + typeof markerList.getList());              //DEBUG
-        var debugText = "markerList.getList()[0].getMarkerID() : "+ markerList.getList()[0].getMarkerID() + "<br> markerList.getList()[0].getElementName(): " + markerList.getList()[0].getElementName() + "<br> markerList.getList()[0].getPatternURL(): " + markerList.getList()[0].getPatternURL() ;// DEBUG
+        //var debugText = "markerList.getList()[0].getMarkerID() : "+ markerList.getList()[0].getMarkerID() + "<br> markerList.getList()[0].getElementName(): " + markerList.getList()[0].getElementName() + "<br> markerList.getList()[0].getPatternURL(): " + markerList.getList()[0].getPatternURL() ;// DEBUG
         //document.getElementById("debugP").innerHTML = debugText;              // DEBUG
     }
 
@@ -86,7 +86,7 @@ function MarkersManager() {
    /** TO-DO: DOCUMENT NEW METHOD: ADD MARKER INDICATOR **/
     var addMarkerIndicator = function(markerID) {
         var markerEl = document.getElementById(markerID);
-	    document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
+	    //document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
 
 	    var entityEl = document.createElement('a-entity');
 	    var scaleX = "0.1";
