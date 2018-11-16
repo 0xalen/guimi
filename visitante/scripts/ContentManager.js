@@ -103,7 +103,7 @@ function ContentManager(mID, cType) {
         }
     }
 
-    this.hideContent = () {
+    this.hideContent = function() {
         var entityEl = document.getElementById("entityID");
         while (entityEl.childNodes[0]) {
             entityEl.removeChild(entityEl.childNodes[0]);
