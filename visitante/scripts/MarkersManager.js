@@ -44,15 +44,11 @@ function MarkersManager() {
 
     var addMarkersToList = function(mList) {
         var i, m;
-        //var debugText = "mList.mID[0] : "+ mList.mID[0] + "<br> mList.mElementName[0]: " + mList.mElementName[0] + "<br>mList.mPattURL[0]: " + mList.mPattURL[0] ;// DEBUG
-        //var debugText = "mID: " + mList.mID.length;
         for (i = 0; i < mList.mID.length; i++) {
             m = new Marker(mList.mID[i], mList.mElementName[i], mList.mPattURL[i]);
             markerList.addMarker(m);
         }
         //console.log("markerList: " + typeof markerList.getList());              //DEBUG
-        //var debugText = "markerList.getList()[0].getMarkerID() : "+ markerList.getList()[0].getMarkerID() + "<br> markerList.getList()[0].getElementName(): " + markerList.getList()[0].getElementName() + "<br> markerList.getList()[0].getPatternURL(): " + markerList.getList()[0].getPatternURL() ;// DEBUG
-        //document.getElementById("debugP").innerHTML = debugText;              // DEBUG
     }
 
     this.getMarkers = function() {
@@ -68,7 +64,6 @@ function MarkersManager() {
         }
     }
 
-// addA(markerID, "markerBtn", eName);
     var createElement = function(markerID, pattURL) {
         var sceneEl = document.querySelector("a-scene");
 
@@ -81,30 +76,30 @@ function MarkersManager() {
 
         sceneEl.insertAdjacentElement('beforeend', markerEl);
 
-	    addMarkerIndicator(markerID);
+        addMarkerIndicator(markerID);
     }
    /** TO-DO: DOCUMENT NEW METHOD: ADD MARKER INDICATOR **/
     var addMarkerIndicator = function(markerID) {
         var markerEl = document.getElementById(markerID);
-	    //document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
+        //document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
 
-	    var entityEl = document.createElement('a-entity');
-	    var scaleX = "0.1";
-	    var scaleY = "0.2";
-	    var scaleZ = "0.2";
-	    var scaleAtt = document.createAttribute("scale");
-	    scaleAtt.value = scaleX +  " " + scaleY + " " + scaleZ;
-	    entityEl.setAttributeNode(scaleAtt);
+        var entityEl = document.createElement('a-entity');
+        var scaleX = "0.1";
+        var scaleY = "0.2";
+        var scaleZ = "0.2";
+        var scaleAtt = document.createAttribute("scale");
+        scaleAtt.value = scaleX +  " " + scaleY + " " + scaleZ;
+        entityEl.setAttributeNode(scaleAtt);
 
-	    var visibility = document.createAttribute("visible");
-	    visibility.value = true;
-	    entityEl.setAttributeNode(visibility);
+        var visibility = document.createAttribute("visible");
+        visibility.value = true;
+        entityEl.setAttributeNode(visibility);
 
-	    var coneEl = document.createElement('a-cone');
+        var coneEl = document.createElement('a-cone');
 
         var posX = "0";
         var posY = "6";
-        var posZ = "2";
+        var posZ = "-2";
         var pos = document.createAttribute("position");
         pos.value = posX +  " " + posY + " " + posZ;
         coneEl.setAttributeNode(pos);
@@ -158,7 +153,7 @@ function MarkersManager() {
         for (i = 0; i < ml.length; i++){
             id = ml[i].getMarkerID();
             markerEl = document.getElementById(id);
-        	/* markerEl.visible */
+            /* markerEl.visible */
         }
     }
 
@@ -171,8 +166,8 @@ function MarkersManager() {
         var i;
         for (i = 0; i < ml.length; i++){
             id = ml[i].getMarkerID();
-        	if (id === selectedMarker) {
-            	continue;
+            if (id === selectedMarker) {
+                continue;
             }
             markerEl = document.getElementById(id);
             markerEl.setAttribute('visible', false);
@@ -188,7 +183,7 @@ function MarkersManager() {
         for (i = 0; i < ml.length; i++){
             id = ml[i].getMarkerID();
             markerEl = document.getElementById(id);
-        	if (markerEl.visible == false) {
+            if (markerEl.visible == false) {
                 markerEl.setAttribute('visible', true);
             }
         }
