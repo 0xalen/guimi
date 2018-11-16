@@ -99,7 +99,7 @@ function MarkersManager() {
 
         var posX = "0";
         var posY = "6";
-        var posZ = "-2";
+        var posZ = "4";
         var pos = document.createAttribute("position");
         pos.value = posX +  " " + posY + " " + posZ;
         coneEl.setAttributeNode(pos);
