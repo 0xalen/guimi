@@ -117,14 +117,16 @@
         }
     }*/
     app.destroyContent = function() {
+        app.viewingContent = false;
         app.visitor.destroyContentScreen();
         app.visitor.processScene(app.selectedMarker, app);
     }
     app.destroyOptions = function() {
         app.markerCounter = 0;
         console.log('Marker counter: ' + app.markerCounter);        //DEBUG
-        app.visitor.destroyOptionsScreen();
+        app.viewingOptions = false;
         app.selectedMarker = undefined;
+        app.visitor.destroyOptionsScreen();
     }
     /**********************************************************
     *
@@ -156,8 +158,8 @@
                 app.viewingContent = false;
                 app.visitor.destroyContentScreen();
             } else if (app.viewingOptions === true) {
-                app.visitor.destroyOptionsScreen();
                 app.viewingOptions = false;
+                app.visitor.destroyOptionsScreen();
             }
         }
     }
