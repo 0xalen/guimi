@@ -162,7 +162,7 @@ function MarkersManager() {
             	continue;
             }
             markerEl = document.getElementById(id);
-            markerEl[i].setAttribute('visible', false);
+            markerEl.setAttribute('visible', false);
         }
     }
     /** TO-DO: DOCUMENT NEW METHOD: DISPLAY MARKERS **/
