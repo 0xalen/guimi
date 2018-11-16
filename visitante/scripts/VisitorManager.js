@@ -16,15 +16,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  **/
-function VisitorManager() {
+function VisitorManager(mainApp) {
     var mManager;
     var oManager;
     var oScreen;
     var cManager;
     var cScreen;
+    var app = mainApp;
 
     this.checkMarkersLoaded = function() {
-        if (mManager == null) {
+        if (typeof mManager == 'undefined') {
             return false;
         }
         return mManager.checkMarkersLoaded();
@@ -34,8 +35,8 @@ function VisitorManager() {
         mManager = new MarkersManager()
         mManager.setMarkers();
 
-        console.log("mManager.getMarkers(): " + mManager.getMarkers());   //DEBUG
-        if (mManager.getMarkers() == null ) {
+        //console.log("mManager.getMarkers(): " + mManager.getMarkers());   //DEBUG
+        if (typeof mManager.getMarkers() == 'undefined' ) {
             loadMarkers();
         }
     }
@@ -44,28 +45,43 @@ function VisitorManager() {
         mManager.searchForMarkers();
     }
 
-    this.processScene = function(markerID, app) {
-        var debugT = "Marker ID: " + markerID;                  //DEBUG
-        document.getElementById("debugP").innerHTML = debugT;   //DEBUG
-        oManager = new OptionsManager(markerID);
-        oManager.setOptions();
-
-        if (oManager.getOptions() !== null) {
-            oScreen = new OptionsScreen(oManager.getOptions(), app);
-            oScreen.displayOptionsScreen();
-        } else {
-
+    this.processScene = function(markerID) {
+        //console.log("typeof oManager == 'undefined': " + (typeof oManager === 'undefined'));
+        if (typeof oManager === 'undefined'){
+            oManager = new OptionsManager(markerID);
+            oManager.setOptions();
         }
+        //console.log("typeof oManager.getOptions() === null: " + (typeof oManager.getOptions() === 'null'));
+        if (typeof oScreen === 'undefined') {
+            oScreen = new OptionsScreen(oManager.getOptions(), app);
+        }
+        oScreen.displayOptionsScreen();
     }
 
     // If none specified, content Type defaults to image
     this.vizualizeContent = function(markerID, contentType = 0) {
-        cManager = new ContentManager(markerID, contentType);
-        cManager.setContent();
-
-        if (cManager.getContent() !== null) {
-            cScreen = new ContentScreen(cManager.getContent());
-            cScreen.displayContentScreen();
+        if (typeof cManager === 'undefined') {
+            cManager = new ContentManager(markerID, contentType);
+            cManager.setContent();
         }
+        if (typeof cScreen === 'undefined') {
+            cScreen = new ContentScreen(cManager.getContent(), app);
+        }
+        cScreen.displayContentScreen();
     }
+
+    this.destroyContentScreen = function() {
+        console.log("DEBUG: Destroy content(4)");
+        cScreen.closeContentScreen();
+        console.log("DEBUG: Destroy content(5)");
+        oScreen.closeOptionsScreen();
+        cManager = undefined;
+        cScreen = undefined;
+    }
+    this.destroyOptionsScreen = function() {
+        oScreen.closeOptionsScreen();
+        oManager = undefined;
+        oScreen = undefined;
+    }
+
 }

@@ -38,11 +38,16 @@ function OptionsScreen(opt, mainApp) {
         createEventListeners();
     }
 
+    this.closeOptionsScreen = function() {
+        closeOptionsScreen();
+    }
+
     var closeOptionsScreen = function() {
         var oScreenDiv = document.getElementById("optionsScreenID");
         console.log("Child to remove: " + oScreenDiv.childNodes[0]);        //DEBUG
-        oScreenDiv.removeChild(oScreenDiv.childNodes[1]);
-        oScreenDiv.removeChild(oScreenDiv.childNodes[0]);
+        while (oScreenDiv.childNodes[0]) {
+            oScreenDiv.removeChild(oScreenDiv.childNodes[0]);
+        }
         hideOptions();
     }
 
@@ -149,19 +154,19 @@ function OptionsScreen(opt, mainApp) {
         var spanEl = document.createElement('span');
 
         var idAtt = document.createAttribute('id');
-        idAtt.value = "closeBtn";
+        idAtt.value = "closeOptionBtn";
         spanEl.setAttributeNode(idAtt);
 
         var classAtt = document.createAttribute('class');
-        classAtt.value = "btn-close";
+        classAtt.value = "backbtn";
         spanEl.setAttributeNode(classAtt);
 
         var onclickAtt = document.createAttribute('onclick');
         onclickAtt.value = "";
         spanEl.setAttributeNode(onclickAtt);
 
-        var closeBtnEl = document.createTextNode("x");
-        divEl.appendChild(closeBtnEl);
+        var closeBtnEl = document.createTextNode("↩");
+        spanEl.appendChild(closeBtnEl);
 
         divEl.insertAdjacentElement('beforeend', spanEl);
     }
@@ -197,8 +202,9 @@ function OptionsScreen(opt, mainApp) {
             });
         }
 
-        document.getElementById("closeBtn").addEventListener("click", function() {
-            console.log('Close menu');
+        document.getElementById("closeOptionBtn").addEventListener("click", function() {
+            console.log('Close options screen');
+            app.destroyOptions();
             closeOptionsScreen();
         });
     }
