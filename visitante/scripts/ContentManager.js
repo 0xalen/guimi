@@ -104,11 +104,12 @@ function ContentManager(mID, cType) {
     }
 
     this.hideContent = function() {
-        var entityEl = document.getElementById("entityID");
+        /*var entityEl = document.getElementById("entityID");
         while (entityEl.childNodes[0]) {
             entityEl.removeChild(entityEl.childNodes[0]);
-        }
-
+        }*/
+        var entityEl = document.querySelector('#entityID');
+        entityEl.parentNode.removeChild(entityID);
     }
 
     /***************************** ENTITY *************************************/
