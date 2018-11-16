@@ -157,7 +157,7 @@ function MarkersManager() {
 
         var i;
         for (i = 0; i < ml.length; i++){
-            id = ml[i].getMarkerID;
+            id = ml[i].getMarkerID();
         	if (id === selectedMarker) {
             	continue;
             }
@@ -173,7 +173,7 @@ function MarkersManager() {
 
         var i;
         for (i = 0; i < ml.length; i++){
-            id = ml[i].getMarkerID;
+            id = ml[i].getMarkerID();
             markerEl = document.getElementById(id);
         	if (markerEl.visible == false) {
                 markerEl.setAttribute('visible', true);
