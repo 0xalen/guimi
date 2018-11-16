@@ -28,12 +28,30 @@ function OptionsManager(mID) {
     var requestOptions = function() {
         // Request options for element with ID = elementID
         // Process JSON file
-        var oList = {
-                    "images": 3,
-                    "texts": 0,
-                    "videos": 0,
-                    "audios": 0
-                };
+        if (markerID == 'A0001') {
+            var oList = {
+                        "images": 1,
+                        "texts": 0,
+                        "videos": 0,
+                        "audios": 0
+                    };
+        }
+        if (markerID == 'A0002') {
+            var oList = {
+                        "images": 1,
+                        "texts": 0,
+                        "videos": 0,
+                        "audios": 0
+                    };
+        }
+        if (markerID == 'A0003') {
+            var oList = {
+                        "images": 3,
+                        "texts": 0,
+                        "videos": 0,
+                        "audios": 0
+                    };
+        }
 
         return oList;
     }
@@ -43,5 +61,8 @@ function OptionsManager(mID) {
     }
     this.setMarkerID = function(mID) {
         markerID = mID;
+    }
+    this.getOptions = function() {
+        return options;
     }
 }
