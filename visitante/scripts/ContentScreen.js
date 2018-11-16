@@ -255,6 +255,7 @@ function ContentScreen(cList, mainApp, cManager) {
 
         console.log("slideIndex: " + slideIndex);
         if (typeof contentList[slideIndex - 1] !== 'undefined'){
+            cm.hideContent(slideIndex - 1);
             cm.displayContent(contentList[slideIndex - 1].getContentName(), contentList[slideIndex - 1].getContentURL());
         }
     }

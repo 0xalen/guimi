@@ -93,14 +93,25 @@ function ContentManager(mID, cType) {
     this.displayContent = function(cName, cURL) {
         // reemplazar contentName y contentURL en el html correspondiente
         if (cType === 0) {
-            displayImage(cName, cURL);
+            setImage(cName, cURL);
         } else if (cType === 1) {
-            displayText(cName, cURL);
+            setText(cName, cURL);
         } else if (cType === 2) {
-            displayVideo(cName, cURL);
+            setVideo(cName, cURL);
         } else if (cType === 3) {
-            displayAudio(cName, cURL);
+            setAudio(cName, cURL);
         }
+    }
+
+    this.hideContent = (contentToShow) {
+        var i = 0;
+        for (i = 0; i < getContent(); i++) {
+         if (i === contentToShow ) {
+            continue;
+         }
+            setImage(" ", " ");
+        }
+
     }
     /***************************** ENTITY *************************************/
     var addEntity = function(entityID) {
@@ -142,7 +153,7 @@ function ContentManager(mID, cType) {
         markerEl.insertAdjacentElement('beforeend', entityEl);
     }
     /***************************** IMAGE **************************************/
-    var displayImage = function(cName, cURL) {
+    var setImage = function(cName, cURL) {
         var imgEl = document.getElementById(contentID);
 
         imgEl.setAttribute("src", cURL);
@@ -181,7 +192,7 @@ function ContentManager(mID, cType) {
     }
 
     /***************************** TEXT ***************************************/
-    var displayText = function(cName, cURL) {
+    var setText = function(cName, cURL) {
         var textEl = document.getElementById(contentID);
         textEl.setAttribute("value", cURL);
 
