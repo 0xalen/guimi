@@ -278,7 +278,8 @@ body {
     color: white;
     background-color: black;
     opacity: 0.5;
-    font-size: 10vw;
+    font-size: 12vw;
+    border-radius: 50%;
     cursor: pointer;
 }
 .backbtn {
@@ -290,7 +291,7 @@ body {
     background-color: black;
     border-radius: 50%;
     opacity: 0.5;
-    font-size: 10vw;
+    font-size: 12vw;
     cursor: pointer;
 }
 
