@@ -151,22 +151,32 @@ function MarkersManager() {
 
     /** TO-DO: DOCUMENT NEW METHOD: HIDE MARKERS **/
     this.hideUnselectedMarkers = function(selectedMarker) {
-        var unselectedMarkersEl = document.querySelectorAll("a-marker");
+        var ml = getMarkers();
+        var id;
+        var markerEl;
+
         var i;
-        for (i = 0; i < unselectedMarkersEl.length; i++){
-        	if (unselectedMarkersEl[i].id == selectedMarker) {
+        for (i = 0; i < ml.length; i++){
+            id = ml[i].getMarkerID;
+        	if (id === selectedMarker) {
             	continue;
             }
-            selectedMarkerEl[i].setAttribute('visible', false);
+            markerEl = document.getElementById(id);
+            markerEl[i].setAttribute('visible', false);
         }
     }
     /** TO-DO: DOCUMENT NEW METHOD: DISPLAY MARKERS **/
     this.displayAllMarkers = function() {
-       var markersEl = document.querySelectorAll("a-marker");
+        var ml = getMarkers();
+        var id;
+        var markerEl;
+
         var i;
-        for (i = 0; i < markersEl.length; i++){
-        	if (markersEl[i].visible == false) {
-            	selectedMarkerEl[i].setAttribute('visible', true);
+        for (i = 0; i < ml.length; i++){
+            id = ml[i].getMarkerID;
+            markerEl = document.getElementById(id);
+        	if (markerEl.visible == false) {
+                markerEl.setAttribute('visible', true);
             }
         }
     }
