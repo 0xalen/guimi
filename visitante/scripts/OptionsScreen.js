@@ -44,7 +44,7 @@ function OptionsScreen(opt, mainApp) {
 
     var closeOptionsScreen = function() {
         var oScreenDiv = document.getElementById("optionsScreenID");
-        console.log("Child to remove: " + oScreenDiv.childNodes[0]);        //DEBUG
+        //console.log("Child to remove: " + oScreenDiv.childNodes[0]);        //DEBUG
         while (oScreenDiv.childNodes[0]) {
             oScreenDiv.removeChild(oScreenDiv.childNodes[0]);
         }
