@@ -167,7 +167,7 @@ function MarkersManager() {
     }
     /** TO-DO: DOCUMENT NEW METHOD: DISPLAY MARKERS **/
     this.displayAllMarkers = function() {
-        var ml = getMarkers();
+        var ml = markerList.getList();
         var id;
         var markerEl;
 
