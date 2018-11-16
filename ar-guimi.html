@@ -24,6 +24,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
  <!--   <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>"GuIMI: Realidad Aumentada"</title>
     <link rel="stylesheet" type="text/css" href="visitante/styles/inline.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="visitante/styles/guimi.css">
 
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
@@ -46,9 +47,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
         <!-- <a-scene embedded arjs="debugUIEnabled: false;"> -->
         <!-- Content-->
 	    <a-assets>
-	        <img id="transpImage" src="visitante/images/logos/logo_guimi-circle.png">
+	        <img id="imageAsset" src="">
 		</a-assets>
-		<a-image width="1" height="1" src="#transpImage">
+		<a-image width="1" height="1" src="#imageAsset">
 
 		<!-- Default marker -->
         <a-marker preset="hiro" id='marker-hiro' registerevents>
@@ -75,16 +76,31 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
         <script src="visitante/scripts/app.js" async></script>
     </main>
 
-    <div id="optionsScreenID" class="options" style="display:none">
+    <div id="optionsScreenID" class="options w3-mobile w3-row" style="display:none">
 
     </div>
-    <div id="contentScreenID" class="content" style="display:none">
+    <div id="contentScreenID" class="content w3-mobile w3-row" style="display:none">
 
     </div>
 
-    <div id="divDebug">
+    <div id="divDebug" >
 		<p id="debugP"></p>
-        <button id="debugBtn" onclick="">TEMP DEBUG</button>
+        <div class="w3-row w3-mobile w3-display-middle">
+            <div class="w3-container w3-third">
+                <button id="debugBtn1" style="display: inline-block;" onclick="">A0001</button>
+            </div>
+            <div class="w3-container w3-third">
+                <button id="debugBtn2" style="display: inline-block;" onclick="">A0002</button>
+            </div>
+            <div class="w3-container w3-third">
+                <button id="debugBtn3" style="display: inline-block;" onclick="">A0003</button>
+            </div>
+
+
+
+
+        </div>
+
         <!-- document.getElementById("debugP").innerHTML = ;              /* DEBUG*/-->
 	</div>
 </body>
