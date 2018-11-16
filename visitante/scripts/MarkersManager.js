@@ -60,6 +60,9 @@ function MarkersManager() {
         return markerList.getList();
     }
 
+    var getMarkers = function() {
+        return getMarkers();
+    }
     this.searchForMarkers = function() {
         var i;
         var mList = markerList.getList();
