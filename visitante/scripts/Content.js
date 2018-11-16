@@ -23,7 +23,7 @@ function Content(cName, cURL) {
     this.setContentName = function (cName) {
         contentName = cName;
     }
-    this.contentName = function () {
+    this.getContentName = function () {
         return contentName;
     }
 

@@ -31,23 +31,42 @@ function ContentManager(mID, cType) {
         // Request image content for element with ID = elementID
         // Process JSON file
         // (Until the API is implemented, these are test values)
-        var cList = {
-                    "cName":[ "CA0005_I-01", "CA0005_I-02", "CA0005_I-03" ],
-                    "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-02.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-03.png"]
+        // This method uses markerID and contentType
+        if (contentType == 0 ) {
+            if (mID == 'A0001') {
+                var cList = {
+                            "cName":[ "CA0001_I-01" ],
+                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0001_I-01.png"]
+                }
+            }
+            if (mID == 'A0002') {
+                var cList = {
+                            "cName":[ "CA0002_I-01" ],
+                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0002_I-01.png"]
+                }
+            }
+            if (mID == 'A0003') {
+                var cList = {
+                            "cName":[ "CA0003_I-01", "CA0003_I-02", "CA0003_I-03" ],
+                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-02.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0005_I-03.png"]
+                }
+            }
         }
+        console.log("markerID: " + mID);
         return cList;
     }
 
     var addContentToList = function(cList) {
         var i, c;
-        for (i = 0; i < cList.getLength(); i++ ) {
+        for (i = 0; i < cList.cName.length; i++ ) {
             c = new Content(cList.cName[i], cList.cURL[i]);
             contentList.addContent(c);
         }
+        console.log(( contentList.getLength() == 0) ? "Content list empty":"Content List ready");              //DEBUG
     }
 
     this.getContent = function() {
-        return contentList;
+        return contentList.getList();
     }
 
     this.getMarkerID = function() {

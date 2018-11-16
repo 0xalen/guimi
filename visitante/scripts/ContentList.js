@@ -20,7 +20,7 @@ function ContentList() {
     var contentList = [];
 
     this.getList = function() {
-        return contentList();
+        return contentList;
     }
 
     this.getLength = function() {
