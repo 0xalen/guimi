@@ -200,11 +200,29 @@ function ContentManager(mID, cType) {
     /***************************** TEXT ***************************************/
     var setText = function(cName, cURL) {
       var textEl = document.getElementById(contentID);
-      //  textEl.setAttribute("value", cURL);
-      textEl.setAttribute("value", cName);       //TEMP DEBUG
 
-  //      displayName(cName);
+      //var textContent = textFileToVar(cURL);
+      //console.log("Text content (before): " + textContent);     //TEMP DEBUG
+      //textEl.setAttribute("value", textContent);
+
+      textFileToVar(cURL, function(textContent){
+            textEl.setAttribute("value", textContent);
+            console.log("Text content: " + textContent);     //TEMP DEBUG
+        });
+      //      displayName(cName);
     }
+
+    var textFileToVar = function(cURL, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'text';
+        console.log("Text content URI: " + cURL);                              // DEBUG
+        xhr.onreadystatechange = function() {
+            callback(xhr.responseText);
+        }
+        xhr.open('GET', cURL);
+        xhr.send();
+    }
+
     var addTextElement = function(parentEntityID) {
         // Query a-marker
         var parentEl = document.getElementById(parentEntityID);
