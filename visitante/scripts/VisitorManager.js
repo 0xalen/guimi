@@ -47,6 +47,7 @@ function VisitorManager(mainApp) {
 
     this.processScene = function(markerID) {
         //console.log("typeof oManager == 'undefined': " + (typeof oManager === 'undefined'));
+        mManager.hideUnselectedMarkers(markerID);
         if (typeof oManager === 'undefined'){
             oManager = new OptionsManager(markerID);
             oManager.setOptions();
@@ -83,6 +84,7 @@ function VisitorManager(mainApp) {
         oScreen.closeOptionsScreen();
         oManager = undefined;
         oScreen = undefined;
+        mManager.displayAllMarkers();
     }
 
 }
