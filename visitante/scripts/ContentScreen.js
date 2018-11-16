@@ -1,7 +1,8 @@
-function ContentScreen(cList, mainApp) {
+function ContentScreen(cList, mainApp, cManager) {
     var contentList = cList;
     var slideIndex = 1;
     var app = mainApp;
+    var cm = cManager;
 
     this.displayContentScreen = function() {
         showGallery();
@@ -18,7 +19,7 @@ function ContentScreen(cList, mainApp) {
     var closeContentScreen = function() {
         console.log("Close content screen (private)");
         var cScreenDiv = document.getElementById("contentScreenID");
-        console.log("Child to remove: " + cScreenDiv.childNodes[0]);        //DEBUG
+        //console.log("Child to remove: " + cScreenDiv.childNodes[0]);        //DEBUG
         while (cScreenDiv.childNodes[0]) {
             cScreenDiv.removeChild(cScreenDiv.childNodes[0]);
         }
@@ -248,8 +249,13 @@ function ContentScreen(cList, mainApp) {
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
+
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
+
+        if (typeof contentList[slideIndex] !== 'undefined'){
+            cm.displayContent(contentList[slideIndex].getContentName(), contentList[slideIndex].getContentURL());
+        }
     }
 
 }

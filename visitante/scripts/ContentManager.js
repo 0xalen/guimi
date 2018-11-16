@@ -20,6 +20,7 @@ function ContentManager(mID, cType) {
     var contentList = new ContentList();
     var markerID = mID;
     var contentType = cType;
+    var contentID;
 
     // Handle Content
     this.setContent = function() {
@@ -41,8 +42,8 @@ function ContentManager(mID, cType) {
             }
             if (mID == 'A0002') {
                 var cList = {
-                            "cName":[ "CA0002_I-01" ],
-                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0002_I-01.png"]
+                            "cName":[ "CA0002_I-01", "CA0002_I-02" ],
+                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0002_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0002_I-02.png"]
                 }
             }
             if (mID == 'A0003') {
@@ -76,78 +77,50 @@ function ContentManager(mID, cType) {
         markerID = mID;
     }
 
-    this.showContent = function() {
-
+    this.prepareContent = function() {
+        addEntity("entityID");
+        if (cType === 0) {
+            addImageElement("entityID");
+        } else if (cType === 1) {
+            addTextElement("entityID");
+        } else if (cType === 2) {
+            addVideoElement("entityID");
+        } else if (cType === 3) {
+            addAudioElement("entityID");
+        }
     }
 
-    this.displayContent = function() {
+    this.displayContent = function(cName, cURL) {
         // reemplazar contentName y contentURL en el html correspondiente
+        if (cType === 0) {
+            displayImage(cName, cURL);
+        } else if (cType === 1) {
+            displayText(cName, cURL);
+        } else if (cType === 2) {
+            displayVideo(cName, cURL);
+        } else if (cType === 3) {
+            displayAudio(cName, cURL);
+        }
     }
-
-    var addImageElement = function() {
-        /*
-        <a-image width="1" height="1" src="#transpImage"></a-image>
-        */
-
+    /***************************** ENTITY *************************************/
+    var addEntity = function(entityID) {
         var markerEl = document.getElementById(markerID);
-	    //document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
 
-	    var entityEl = document.createElement('a-entity');
+        // Create image Element
+        var entityEl = document.createElement('a-entity');
 
-	    var scaleX = "0.1";
+        var idAtt = document.createAttribute('id');
+        idAtt.value = entityID;
+        entityEl.setAttributeNode(idAtt);
+
+        // SCALE
+        var scaleX = "0.1";
 	    var scaleY = "0.2";
 	    var scaleZ = "0.2";
 	    var scaleAtt = document.createAttribute("scale");
 	    scaleAtt.value = scaleX +  " " + scaleY + " " + scaleZ;
 	    entityEl.setAttributeNode(scaleAtt);
 
-	    var visibility = document.createAttribute("visible");
-	    visibility.value = true;
-	    entityEl.setAttributeNode(visibility);
-
-	    var coneEl = document.createElement('a-cone');
-
-        var posX = "0";
-        var posY = "6";
-        var posZ = "2";
-
-        var pos = document.createAttribute("position");
-        pos.value = posX +  " " + posY + " " + posZ;
-        coneEl.setAttributeNode(pos);
-
-        var rotX = "90";
-        var rotY = "0";
-        var rotZ = "0";
-
-        var rot = document.createAttribute("rotation");
-        rot.value = rotX +  " " + rotY + " " + rotZ;
-        coneEl.setAttributeNode(rot);
-
-        markerEl.insertAdjacentElement('beforeend', entityEl);
-
-        var mat = document.createAttribute("material");
-        mat.value = "opacity: 0.5; side:double; color:red";
-
-        coneEl.setAttributeNode(mat );
-
-        entityEl.insertAdjacentElement('beforeend', coneEl);
-    }
-
-    /***************************** IMAGE **************************************/
-    var displayImage = function(cName, cURL) {
-        var markerEl = document.getElementById(markerID);
-
-        // Replace image source with the element's cURL
-        markerEl.src = cURL;
-
-        displayName(cName);
-    }
-    var addImage = function() {
-        // Query a-marker
-        var markerEl = document.getElementById(markerID);
-
-        // Create image Element
-        var imageEl = document.createElement('a-image');
         // POSITION
         var posX = "0";
         var posY = "1";
@@ -155,26 +128,64 @@ function ContentManager(mID, cType) {
 
         var pos = document.createAttribute("position");
         pos.value = posX +  " " + posY + " " + posZ;
-        imageEl.setAttributeNode(pos);
+        entityEl.setAttributeNode(pos);
         // ROTATION
         var rotX = "-90";
         var rotY = "0";
         var rotZ = "0";
 
-        var rotEL = document.createAttribute("rotation");
+        var rotEl = document.createAttribute("rotation");
         rotEl.value = rotX +  " " + rotY + " " + rotZ;
-        imageEl.setAttributeNode(rotEl);
+        entityEl.setAttributeNode(rotEl);
 
-        // Add image to to marker
-        markerEl.insertAdjacentElement('beforeend', imageEl);
+        // Add entity to to marker
+        markerEl.insertAdjacentElement('beforeend', entityEl);
+    }
+    /***************************** IMAGE **************************************/
+    var displayImage = function(cName, cURL) {
+        var imgEl = document.getElementById(contentID);
+
+        imgEl.setAttribute("src", cURL);
+
+//        displayName(cName);
+    }
+
+     var addImageElement = function(parentEntityID) {
+        /*
+        <a-image width="1" height="1" src="#imageAsset"></a-image>
+        */
+        var parentEl = document.getElementById(parentEntityID);
+
+	    var imageEl = document.createElement('a-image');
+
+        contentID = "imageAsset" + markerID;
+        var idAtt = document.createAttribute('id');
+        idAtt.value = contentID;
+        imageEl.setAttributeNode(idAtt);
+
+        var widthVal = "1";
+        var widthAtt = document.createAttribute("width");
+        widthAtt.value = widthVal;
+        imageEl.setAttributeNode(widthAtt);
+
+        var heightVal = "1";
+        var heightAtt = document.createAttribute("height");
+        heightAtt.value = heightVal;
+        imageEl.setAttributeNode(heightAtt);
+
+        var srcAtt = document.createAttribute("src");
+        srcAtt.value = "";
+        imageEl.setAttributeNode(srcAtt);
+
+        parentEl.insertAdjacentElement('beforeend', imageEl);
     }
 
     /***************************** TEXT ***************************************/
     var displayText = function(cName, cURL) {
-        var valEl = document.createAttribute("value");
-        valEl.value = cURL;
+        var textEl = document.getElementById(contentID);
+        textEl.setAttribute("value", cURL);
 
-        displayName(cName);
+  //      displayName(cName);
     }
     var addTextElement = function() {
         // Query a-marker
@@ -182,21 +193,20 @@ function ContentManager(mID, cType) {
 
         // Create text Element
         var textEl = document.createElement('a-text');
-        // POSITION
-        var posX = "0";
-        var posY = "1";
-        var posZ = "0";
-        var pos = document.createAttribute("position");
-        pos.value = posX +  " " + posY + " " + posZ;
-        textEl.setAttributeNode(pos);
 
-        // ROTATION
-        var rotX = "-90";
-        var rotY = "0";
-        var rotZ = "0";
-        var rotEL = document.createAttribute("rotation");
-        rotEl.value = rotX +  " " + rotY + " " + rotZ;
-        textEl.setAttributeNode(rotEl);
+        var idAtt = document.createAttribute('id');
+        idAtt.value = contentID;
+        textEl.setAttributeNode(idAtt);
+
+        var geometryAtt = document.createAttribute("geometry");
+        geometryAtt.value = "geometry";
+        textEl.setAttributeNode(geometryAtt);
+
+        contentID = "textAsset" + markerID;
+        var srcAtt = document.createAttribute("src");
+        srcAtt.value = "";
+        entityEl.setAttributeNode(srcAtt);
+
 
         // Add image to to marker
         markerEl.insertAdjacentElement('beforeend', textEl);
@@ -205,27 +215,6 @@ function ContentManager(mID, cType) {
     var displayName = function(cName) {
         // Query a-marker
         var markerEl = document.getElementById(markerID);
-
-        // Replace image source with the element's cURL
-        markerEl.src = cURL;
-
-        // Create text Element
-        var textEl = document.createElement('a-text');
-        // POSITION
-        var posX = "0";
-        var posY = "2";
-        var posZ = "2";
-        var pos = document.createAttribute("position");
-        pos.value = posX +  " " + posY + " " + posZ;
-        textEl.setAttributeNode(pos);
-
-        // ROTATION
-        var rotX = "-90";
-        var rotY = "0";
-        var rotZ = "0";
-        var rotEL = document.createAttribute("rotation");
-        rotEl.value = rotX +  " " + rotY + " " + rotZ;
-        textEl.setAttributeNode(rotEl);
 
         var valEl = document.createAttribute("value");
         valEl.value = cName;
