@@ -18,7 +18,7 @@ var dataCacheName = 'guimiData-v1';
 var cacheName = 'guimiPWA-1';
 var filesToCache = [
   '/',
-  '/index.html',
+  '/ar-guimi.html',
   '/visitante/scripts/app.js',
   '/visitante/styles/inline.css',
   '/visitante/images/logos/logo_guimi-192.png',
