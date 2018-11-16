@@ -166,7 +166,8 @@
 
     app.processOption = function(cType) {
         app.viewingContent = true;
-        app.visitor.vizualizeContent(app.selectedMarker, cType);
+        console.log("Visualize content: " + cType);
+        app.visitor.visualizeContent(app.selectedMarker, cType);
     }
 
 

@@ -59,7 +59,7 @@ function VisitorManager(mainApp) {
     }
 
     // If none specified, content Type defaults to image
-    this.vizualizeContent = function(markerID, contentType = 0) {
+    this.visualizeContent = function(markerID, contentType = 0) {
         if (typeof cManager === 'undefined') {
             cManager = new ContentManager(markerID, contentType);
             cManager.setContent();
