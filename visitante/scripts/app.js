@@ -67,13 +67,25 @@
     m.addEventListener("markerLost", (e)=>{
         console.log("lost")
     })
-
-    document.getElementById("debugBtn").addEventListener("click", function() {
+    /* TEMP EVENTS */
+    document.getElementById("debugBtn1").addEventListener("click", function() {
+            console.log('Process Marker (TEST)');
+            app.markerCounter++;
+            app.processMarker('A0001');
+            console.log('Marker counter: ' + app.markerCounter);
+    });
+    document.getElementById("debugBtn2").addEventListener("click", function() {
+            console.log('Process Marker (TEST)');
+            app.markerCounter++;
+            app.processMarker('A0002');
+            console.log('Marker counter: ' + app.markerCounter);
+    });
+    document.getElementById("debugBtn3").addEventListener("click", function() {
             console.log('Process Marker (TEST)');
             app.markerCounter++;
             app.processMarker('A0003');
             console.log('Marker counter: ' + app.markerCounter);
-        });
+    });
 
     /**********************************************************
     *

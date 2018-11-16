@@ -34,12 +34,12 @@ function ContentScreen(cList) {
         var imageID = "imageID" + cCounter;
         console.log("cCounter: " + cCounter);
         console.log("cList: " + contentList.length);
-        var counterText = cCounter + " / " + contentList.length;
+        var counterText = cCounter + 1 + " / " + contentList.length;
         for (cCounter = 0; cCounter < contentList.length; cCounter++) {
             contentID = "content" + cCounter;
             addDiv("containerID", "contentSlides fade", contentID, " ");
 
-            counterText = cCounter + " / " + contentList.length;
+            counterText = cCounter + 1 + " / " + contentList.length;
             addDivText(contentID, "numbertext", counterText);
 
             imageID = "imageID" + cCounter;
