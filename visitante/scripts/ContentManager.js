@@ -103,16 +103,14 @@ function ContentManager(mID, cType) {
         }
     }
 
-    this.hideContent = (contentToShow) {
-        var i = 0;
-        for (i = 0; i < getContent(); i++) {
-         if (i === contentToShow ) {
-            continue;
-         }
-            setImage(" ", " ");
+    this.hideContent = () {
+        var entityEl = document.getElementById("entityID");
+        while (entityEl.childNodes[0]) {
+            entityEl.removeChild(entityEl.childNodes[0]);
         }
 
     }
+
     /***************************** ENTITY *************************************/
     var addEntity = function(entityID) {
         var markerEl = document.getElementById(markerID);
