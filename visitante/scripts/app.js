@@ -60,6 +60,7 @@
         }
     });
     */
+    /*
     var m = document.querySelector("a-marker");
     m.addEventListener("markerFound", (e)=>{
         console.log("found")
@@ -67,7 +68,7 @@
 
     m.addEventListener("markerLost", (e)=>{
         console.log("lost")
-    })
+    }) */
     /* TEMP EVENTS */
     document.getElementById("debugBtn1").addEventListener("click", function() {
             console.log('Process Marker (A0001)');

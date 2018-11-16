@@ -149,6 +149,19 @@ function MarkersManager() {
         divEl.insertAdjacentElement('beforeend', aEl);
     }
 
+    this.prepareEventListeners = function() {
+        var ml = markerList.getList();
+        var id;
+        var markerEl;
+
+        var i;
+        for (i = 0; i < ml.length; i++){
+            id = ml[i].getMarkerID();
+            markerEl = document.getElementById(id);
+        	/* markerEl.visible */
+        }
+    }
+
     /** TO-DO: DOCUMENT NEW METHOD: HIDE MARKERS **/
     this.hideUnselectedMarkers = function(selectedMarker) {
         var ml = this.getMarkers();
