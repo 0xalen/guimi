@@ -60,9 +60,6 @@ function MarkersManager() {
         return markerList.getList();
     }
 
-    var getMarkers = function() {
-        return getMarkers();
-    }
     this.searchForMarkers = function() {
         var i;
         var mList = markerList.getList();
@@ -154,7 +151,7 @@ function MarkersManager() {
 
     /** TO-DO: DOCUMENT NEW METHOD: HIDE MARKERS **/
     this.hideUnselectedMarkers = function(selectedMarker) {
-        var ml = getMarkers();
+        var ml = this.getMarkers();
         var id;
         var markerEl;
 
