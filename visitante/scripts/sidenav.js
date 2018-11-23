@@ -9,6 +9,7 @@ function closeMenu() {
     document.getElementById("side-menu").style.width = "0";
     //document.getElementById('main').style.marginLeft = '0';
     document.getElementById('main').style.display = "block";
+    document.getElementById('about').style.display = "none"
     document.body.style.backgroundColor = "white";
 } 
 function hideMenu() {
