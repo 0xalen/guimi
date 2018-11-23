@@ -8,7 +8,7 @@ function openMenu() {
 function closeMenu() {
     document.getElementById("side-menu").style.width = "0";
     //document.getElementById('main').style.marginLeft = '0';
-    document.getElementById('main').style.display = block;
+    document.getElementById('main').style.display = "block";
     document.body.style.backgroundColor = "white";
 } 
 function hideMenu() {
@@ -18,5 +18,5 @@ function hideMenu() {
 function openAbout() {
     hideMenu();
     //document.getElementById("");
-    document.getElementById("about").style.display = block;
+    document.getElementById("about").style.display = "block";
 }
