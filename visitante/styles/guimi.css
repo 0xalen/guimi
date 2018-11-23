@@ -49,6 +49,7 @@ body {
   border-width: small;
   /**border-color: white;**/
   background-color: white rgba(255, 0, 0, .5);
+  box-shadow: 0vw 0vw 0vw 1vw rgba(0,0,0,0.3);
 }
 
 
