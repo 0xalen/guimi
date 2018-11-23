@@ -51,7 +51,19 @@ body {
   /*background-color: white rgba(255, 0, 0, .5);*/
   box-shadow: 0vw 0vw 0vw 1vw rgba(0,0,0,0.3);
 }
+.closeMenuBtn {
+    display: table;
+    position: fixed;
+    top: 15%;
+    left: 5%;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0.5;
+    font-size: 7vw;
+    cursor: pointer;
 
+}
 
 .side-nav a:hover{
   color:#fff;
