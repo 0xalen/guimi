@@ -17,6 +17,6 @@ function hideMenu() {
 }
 function openAbout() {
     hideMenu();
-    document.getElementById("")
+    //document.getElementById("");
     document.getElementById("about").style.display = block;
 }
