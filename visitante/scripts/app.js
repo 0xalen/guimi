@@ -176,7 +176,8 @@
 	// Service worker
 	if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-             .register('../../service-worker.js')
+             //.register('../../service-worker.js')
+             .register('https://raw.githubusercontent.com/0xalen/guimi/master/service-worker.js')
              .then(function() { console.log('Service Worker registered'); });
   }
 

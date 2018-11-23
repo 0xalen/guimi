@@ -303,3 +303,9 @@ body {
     color: white;
     background-color: #3f51b5; }
 
+@media all and (display-mode: standalone) {
+  body {
+    background-color: yellow;
+  }
+}
+
