@@ -43,7 +43,10 @@ function ContentManager(mID, cType) {
             if (mID == 'A0002') {
                 var cList = {
                             "cName":[ "CA0002_I-01", "CA0002_I-02" ],
-                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0002_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0002_I-02.png"]
+                            "cURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0002_I-01.png", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/img/CA0002_I-02.png"],
+                            "cScale": [["1.0", "2.0", "3.0" ], ["2.0", "3.0", "4.0" ] ],
+                            "cPosition": [["0.0", "1.0", "0.0" ], ["0.0", "2.0", "0.0" ] ],
+                            "cRotation": [["-90", "0", "0" ], ["-90", "0", "0" ] ]
                 }
             }
             if (mID == 'A0003') {
@@ -120,7 +123,7 @@ function ContentManager(mID, cType) {
     }
 
     /***************************** ENTITY *************************************/
-    var addEntity = function(entityID) {
+    var addEntity = function(entityID, scalePar = ["1", "2", "3"]) {
         var markerEl = document.getElementById(markerID);
 
         // Create image Element
@@ -131,9 +134,9 @@ function ContentManager(mID, cType) {
         entityEl.setAttributeNode(idAtt);
 
         // SCALE
-        var scaleX = "1";
-	    var scaleY = "2";
-	    var scaleZ = "3";
+        var scaleX = scalePar[0];
+	    var scaleY = scalePar[1];
+	    var scaleZ = scalePar[2];
 	    var scaleAtt = document.createAttribute("scale");
 	    scaleAtt.value = scaleX +  " " + scaleY + " " + scaleZ;
 	    entityEl.setAttributeNode(scaleAtt);
