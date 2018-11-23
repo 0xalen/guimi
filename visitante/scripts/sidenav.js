@@ -11,3 +11,12 @@ function closeMenu() {
     document.getElementById('main').style.display = block;
     document.body.style.backgroundColor = "white";
 } 
+function hideMenu() {
+    document.getElementById("side-menu").style.width = "0";
+    document.body.style.backgroundColor = "white";
+}
+function openAbout() {
+    hideMenu();
+    document.getElementById("")
+    document.getElementById("about").style.display = block;
+}
