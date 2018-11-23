@@ -46,10 +46,11 @@ body {
   display: block;
   transition: 0.3s;
   border-style: solid;
-  border-width: medium;
-  border-color: white;
+  border-width: small;
+  /**border-color: white;**/
+  background-color: white rgba(255, 0, 0, .5);
 }
-}
+
 
 .side-nav a:hover{
   color:#fff;
