@@ -21,3 +21,6 @@ function openAbout() {
     //document.getElementById("");
     document.getElementById("about").style.display = "block";
 }
+function openStart() {
+    closeMenu();
+}
