@@ -273,25 +273,25 @@ body {
 /* CLOSE BUTTON*/
 .closebtn {
     position: absolute;
-    top: 5%;
+    top: 15%;
     right: 5%;
     color: white;
     background-color: black;
     opacity: 0.5;
-    font-size: 10vw;
+    font-size: 7vw;
     border-radius: 50%;
     cursor: pointer;
 }
 .backbtn {
     display: table;
     position: fixed;
-    top: 5%;
+    top: 15%;
     left: 5%;
     color: white;
     background-color: black;
     border-radius: 50%;
     opacity: 0.5;
-    font-size: 10vw;
+    font-size: 7vw;
     cursor: pointer;
 }
 
