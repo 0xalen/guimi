@@ -44,16 +44,13 @@ function OptionsScreen(opt, mainApp) {
 
     var closeOptionsScreen = function() {
         var oScreenDiv = document.getElementById("optionsScreenID");
-        //console.log("Child to remove: " + oScreenDiv.childNodes[0]);        //DEBUG
         while (oScreenDiv.childNodes[0]) {
             oScreenDiv.removeChild(oScreenDiv.childNodes[0]);
         }
-        console.log("DIV children killed");
         hideOptions();
     }
 
     var hideOptions = function() {
-    console.log("Hide options screen DIV");
     document.getElementById('optionsScreenID').style.display='none';
     }
 
@@ -206,9 +203,7 @@ function OptionsScreen(opt, mainApp) {
 
         document.getElementById("closeOptionBtn").addEventListener("click", function() {
             console.log('Closing options screen');
-            console.log('Destroy Option objects');
             app.destroyOptions();
-            console.log('Close Options Screen');
             closeOptionsScreen();
         });
     }

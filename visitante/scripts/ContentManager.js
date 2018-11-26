@@ -113,18 +113,24 @@ function ContentManager(mID, cType) {
         }
     }
 
-    this.hideContent = function() {
-        /*var entityEl = document.getElementById("entityID");
-        while (entityEl.childNodes[0]) {
-            entityEl.removeChild(entityEl.childNodes[0]);
-        }*/
+    this.hideContent = function(callback) {
         console.log("Hide content (cManager)");
         var entityEl = document.querySelector('#entityID');
-        entityEl.parentNode.removeChild(entityID);
+        console.log("entityEl.id: " + entityEl.id);
+        var parent = entityEl.parentNode;
+        console.log("parent.id: " + parent.id);
+
+        console.log("parent.childNodes[0].id: " + parent.childNodes[1].id);
+
+        entityEl.parentNode.removeChild(document.querySelector('#entityID'));
+        //entityEl.parentNode.removeChild(entityEl);
+        //entityEl.parentNode.innerHTML = "";
+
+        callback(true);
     }
 
     /***************************** ENTITY *************************************/
-    var addEntity = function(entityID, scalePar = ["1", "2", "3"]) {
+    var addEntity = function(entityID) {//}, scalePar = ["1", "2", "3"]) {
         var markerEl = document.getElementById(markerID);
 
         // Create image Element
@@ -135,9 +141,14 @@ function ContentManager(mID, cType) {
         entityEl.setAttributeNode(idAtt);
 
         // SCALE
-        var scaleX = scalePar[0];
-	    var scaleY = scalePar[1];
-	    var scaleZ = scalePar[2];
+        //var scaleX = scalePar[0];
+	    //var scaleY = scalePar[1];
+	    //var scaleZ = scalePar[2];
+
+        var scaleX = "1";
+	    var scaleY = "2";
+	    var scaleZ = "3";
+
 	    var scaleAtt = document.createAttribute("scale");
 	    scaleAtt.value = scaleX +  " " + scaleY + " " + scaleZ;
 	    entityEl.setAttributeNode(scaleAtt);

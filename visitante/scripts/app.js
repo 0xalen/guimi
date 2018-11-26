@@ -119,7 +119,7 @@
     }*/
     app.destroyContent = function() {
         console.log("Destroy content objects (app)");
-        app.viewingContent = false;
+        //app.viewingContent = false;
         console.log("Delegate to process Marker");
         //app.visitor.processScene(app.selectedMarker, app);
         app.processMarker(app.selectedMarker);
@@ -154,6 +154,10 @@
         if (app.markerCounter === 1) {
             app.selectedMarker = mID;
             app.viewingOptions = true;
+            if (app.viewingContent === true) {
+                app.viewingContent = false;
+                app.visitor.destroyContentScreen();
+            }
             console.log("Processing marker: " + app.selectedMarker);
             app.visitor.processScene(app.selectedMarker, app);
         } else {
