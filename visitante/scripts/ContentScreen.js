@@ -19,10 +19,10 @@ function ContentScreen(cList, mainApp, cManager) {
     var closeContentScreen = function() {
         console.log("Close content screen (private)");
         var cScreenDiv = document.getElementById("contentScreenID");
-        //console.log("Child to remove: " + cScreenDiv.childNodes[0]);        //DEBUG
         while (cScreenDiv.childNodes[0]) {
             cScreenDiv.removeChild(cScreenDiv.childNodes[0]);
         }
+        console.log("Content screen DIV children killed");
         hideGallery();
     }
 
@@ -219,9 +219,11 @@ function ContentScreen(cList, mainApp, cManager) {
         }
 
         document.getElementById("closeContentBtn").addEventListener("click", function() {
-            console.log('Close content screen');
+            console.log('Closing content screen');
+            console.log('Destroy content objects');
             app.destroyContent();
-            closeContentScreen();      //TEMP FOR DEBUG
+            console.log('Close content screen');
+            closeContentScreen();
         });
     }
     /* SLIDER METHODS*/
