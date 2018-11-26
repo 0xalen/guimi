@@ -220,10 +220,11 @@ function ContentScreen(cList, mainApp, cManager) {
 
         document.getElementById("closeContentBtn").addEventListener("click", function() {
             console.log('Closing content screen');
+             console.log('Close content screen');
+            closeContentScreen();
             console.log('Destroy content objects');
             app.destroyContent();
-            console.log('Close content screen');
-            closeContentScreen();
+
         });
     }
     /* SLIDER METHODS*/

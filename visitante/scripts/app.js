@@ -118,16 +118,21 @@
         }
     }*/
     app.destroyContent = function() {
+        console.log("Destroy content objects (app)");
         app.viewingContent = false;
-        app.visitor.destroyContentScreen();
-        app.visitor.processScene(app.selectedMarker, app);
+        console.log("Delegate to process Marker");
+        //app.visitor.processScene(app.selectedMarker, app);
+        app.processMarker(app.selectedMarker);
     }
     app.destroyOptions = function() {
+        console.log("Destroy options objects (app)");
         app.markerCounter = 0;
         console.log('Marker counter: ' + app.markerCounter);        //DEBUG
         app.viewingOptions = false;
         app.selectedMarker = undefined;
-        app.visitor.destroyOptionsScreen();
+        console.log("Delegate to process Marker");
+        //app.visitor.destroyOptionsScreen();
+        app.processMarker(app.selectedMarker);
     }
     /**********************************************************
     *
@@ -145,9 +150,11 @@
     app.visitor.identifyScene();
 
    app.processMarker = function(mID) {
+        console.log("mCounter === 1?: " + (app.markerCounter === 1));
         if (app.markerCounter === 1) {
             app.selectedMarker = mID;
             app.viewingOptions = true;
+            console.log("Processing marker: " + app.selectedMarker);
             app.visitor.processScene(app.selectedMarker, app);
         } else {
             console.log("app.viewingOptions === true: " + (app.viewingOptions === true));

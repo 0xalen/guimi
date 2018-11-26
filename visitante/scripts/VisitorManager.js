@@ -46,16 +46,18 @@ function VisitorManager(mainApp) {
     }
 
     this.processScene = function(markerID) {
-        //console.log("typeof oManager == 'undefined': " + (typeof oManager === 'undefined'));
+        console.log("Hide unselected markers");  //DEBUG
         mManager.hideUnselectedMarkers(markerID);
+        console.log("typeof oManager === 'undefined': " + (typeof oManager === 'undefined') );
         if (typeof oManager === 'undefined'){
             oManager = new OptionsManager(markerID);
             oManager.setOptions();
         }
-        //console.log("typeof oManager.getOptions() === null: " + (typeof oManager.getOptions() === 'null'));
+        console.log("typeof oScreen === 'undefined': " + (typeof oScreen === 'undefined') );
         if (typeof oScreen === 'undefined') {
             oScreen = new OptionsScreen(oManager.getOptions(), app);
         }
+        console.log("Display Options Screen: call to oScreen");
         oScreen.displayOptionsScreen();
     }
 
@@ -73,17 +75,17 @@ function VisitorManager(mainApp) {
     }
 
     this.destroyContentScreen = function() {
-        console.log("DEBUG: Destroy content(3)");
-        cScreen.closeContentScreen();
+        //cScreen.closeContentScreen();
         cManager.hideContent();
-        console.log("DEBUG: Destroy content(4)");
         cManager = undefined;
         cScreen = undefined;
+        console.log("Content Screen destroyed (vManager)");
     }
     this.destroyOptionsScreen = function() {
         oScreen.closeOptionsScreen();
         oManager = undefined;
         oScreen = undefined;
+        console.log("Display all markers");  //DEBUG
         mManager.displayAllMarkers();
     }
 

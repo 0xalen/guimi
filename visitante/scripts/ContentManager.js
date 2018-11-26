@@ -118,6 +118,7 @@ function ContentManager(mID, cType) {
         while (entityEl.childNodes[0]) {
             entityEl.removeChild(entityEl.childNodes[0]);
         }*/
+        console.log("Hide content (cManager)");
         var entityEl = document.querySelector('#entityID');
         entityEl.parentNode.removeChild(entityID);
     }
