@@ -172,12 +172,11 @@ function MarkersManager() {
         var i;
         for (i = 0; i < ml.length; i++){
             id = ml[i].getMarkerID();
-            console.log("Selected  marker: " + selectedMarker);
+            //console.log("Selected  marker: " + selectedMarker);
             if (id === selectedMarker) {
                 continue;
             }
-            console.log("MARKER ID: " + ml[i].getMarkerID());                   // DEBUG
-            console.log("MARKER ID (gEbId): " + document.getElementById(id));   // DEBUG
+            //console.log("MARKER ID: " + ml[i].getMarkerID());                   // DEBUG
             markerEl = document.getElementById(id);
             markerEl.setAttribute('visible', false);
         }
@@ -190,7 +189,7 @@ function MarkersManager() {
 
         var i;
         for (i = 0; i < ml.length; i++){
-            console.log("MARKER ID: " +ml[i].getMarkerID());
+            //console.log("MARKER ID: " +ml[i].getMarkerID());
             id = ml[i].getMarkerID();
             markerEl = document.getElementById(id);
             if (markerEl.visible == false) {
