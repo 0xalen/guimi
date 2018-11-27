@@ -89,6 +89,7 @@
                 app.processMarker('A0003');
                 console.log('Marker counter: ' + app.markerCounter);    //DEBUG
         });
+        app.checkLoader();
     }
 
     /**********************************************************
@@ -146,7 +147,6 @@
 	    //console.log("Markers loaded at start");
 	    app.addDebugEventListeners();
 	    app.visitor.identifyScene();
-	    app.checkLoader();
 	});
 
 
