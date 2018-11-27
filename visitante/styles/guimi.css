@@ -250,8 +250,8 @@ body {
   font-size: 4vw;
   padding: 0% 0% 0% 0%;
   position: fixed;
-  float: right;
-  top: 0;
+  /*float: right;*/
+  margin-top: 0%;
   margin-right: auto;
   margin-left: 10%;
 }
