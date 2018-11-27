@@ -13,7 +13,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "ar-guimi.html",
+  "start_url": "/guimi/ar-guimi.html",
   "display": "standalone",
   "scope": "/guimi/",
   "background_color": "#2657C0",
