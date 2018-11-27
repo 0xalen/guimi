@@ -70,6 +70,7 @@
     }) */
     /* TEMP EVENTS */
     app.addDebugEventListeners = function() {
+        console.log("Add debug event listeners");
         document.getElementById("debugBtn1").addEventListener("click", function() {
                 console.log('Process Marker (A0001)');
                 app.markerCounter++;
@@ -155,9 +156,10 @@
 	app.visitor = new VisitorManager(app);
     // Load Markers
 	app.visitor.loadMarkers(function(){
-	    app.checkLoader();
-	    app.addDebugEventListeners
+	    console.log("Markers loaded at start");
+	    app.addDebugEventListeners();
 	    app.visitor.identifyScene();
+	    app.checkLoader();
 	});
 
    app.processMarker = function(mID) {
