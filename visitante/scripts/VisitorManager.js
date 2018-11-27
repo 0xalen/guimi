@@ -32,14 +32,15 @@ function VisitorManager(mainApp) {
     }
 
     this.loadMarkers = function(callback) {
+        console.log("LOAD MARKERS");
         mManager = new MarkersManager()
         mManager.setMarkers();
-        callback();
+
         //console.log("mManager.getMarkers(): " + mManager.getMarkers());   //DEBUG
-        /*if (typeof mManager.getMarkers() == 'undefined' ) {
+        if (typeof mManager.getMarkers() == 'undefined' ) {
             loadMarkers();
-        }*/
-        //callback(true);
+        }
+        callback(true);
     }
 
     this.identifyScene = function() {

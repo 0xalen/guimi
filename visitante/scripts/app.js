@@ -142,14 +142,13 @@
 	/**************** AUGMENTED REALITY *********************/
 	app.visitor = new VisitorManager(app);
     // Load Markers
-	app.visitor.loadMarkers(function(){
-	    console.log("Markers loaded at start");
-	    app.markersLoaded = true;
-	    alert("document.getElementById('A0001'): " + document.getElementById('A0001').id);
+	app.visitor.loadMarkers(function() {
+	    //console.log("Markers loaded at start");
 	    app.addDebugEventListeners();
-	    app.checkLoader();
 	    app.visitor.identifyScene();
+	    app.checkLoader();
 	});
+
 
    app.processMarker = function(mID) {
         console.log("app.mCounter === 1?: " + (app.markerCounter === 1));
