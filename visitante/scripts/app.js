@@ -164,13 +164,13 @@
             console.log("app.viewingOptions === true: " + (app.viewingOptions === true));
             console.log("app.viewingContent === true: " + (app.viewingContent === true));
             app.markerCounter = 0;
-            console.log("DEBUG: Destroy content(1)");
             if (app.viewingContent === true) {
-                console.log("DEBUG: Destroy content(2)");
+                console.log("Viewing content true -> false");
                 app.viewingContent = false;
                 app.visitor.destroyContentScreen();
             }
             if (app.viewingOptions === true) {
+                console.log("Viewing options true -> false");
                 app.viewingOptions = false;
                 app.visitor.destroyOptionsScreen();
             }

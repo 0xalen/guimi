@@ -121,9 +121,9 @@ function ContentManager(mID, cType) {
         console.log("parent.id: " + parent.id);
 
         console.log("parent.childNodes[0].id: " + parent.childNodes[1].id);
-        entityEl.removeChild(entityEl.childNodes[0]);
+        //entityEl.removeChild(entityEl.childNodes[0]);
         //entityEl.parentNode.removeChild(document.querySelector('#entityID'));
-        //entityEl.parentNode.removeChild(entityEl);
+        entityEl.parentNode.removeChild(entityEl);
         //entityEl.parentNode.innerHTML = "";
 
         callback(true);

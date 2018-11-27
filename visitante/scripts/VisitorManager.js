@@ -79,8 +79,8 @@ function VisitorManager(mainApp) {
         console.log("Destroy content block");
         //cManager.hideContent();
         cManager.hideContent(function() {
-            //cManager = undefined;
-            //cScreen = undefined;
+            cManager = undefined;
+            cScreen = undefined;
             console.log("Content Screen destroyed (vManager)");
             //oManager.setOptions();
         });
