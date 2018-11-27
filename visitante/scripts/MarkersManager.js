@@ -23,10 +23,12 @@ function MarkersManager() {
         return (markerList.getLength() === 0) ? false : true;
     }
 
-    this.setMarkers = function() {
+    this.setMarkers = function(callback) {
         var mList = requestMarkers();
         console.log(( mList == undefined) ? "Marker list empty":"Marker list ready.");
-        addMarkersToList(mList);
+
+        console.log('MARKERS ADDED TO LIST');
+        callback(addMarkersToList(mList));
     }
 
     var requestMarkers = function() {
@@ -77,6 +79,7 @@ function MarkersManager() {
                 markerList.addMarker(m);
             }
         }
+        console.log(( markerList == undefined) ? "Marker list object empty":"Marker list object ready.");
         //console.log("markerList: " + typeof markerList.getList());              //DEBUG
     }
 
