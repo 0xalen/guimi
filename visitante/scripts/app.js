@@ -146,8 +146,8 @@
 	    console.log("Markers loaded at start");
 	    alert("Markers loaded");
 	    app.addDebugEventListeners();
-	    app.visitor.identifyScene();
 	    app.checkLoader();
+	    app.visitor.identifyScene();
 	});
 
    app.processMarker = function(mID) {
