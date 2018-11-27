@@ -90,18 +90,9 @@
                 console.log('Marker counter: ' + app.markerCounter);    //DEBUG
         });
     }
-    /**********************************************************
-    *
-    *   UI
-    *
-    ***********************************************************/
-
-
-    /**********************************************************
-    *
-    *   Model
-    *
-    ***********************************************************/
+    document.querySelector('p').addEventListener('click', function (evt) {
+        console.log('This 2D element was clicked!');
+    });
 
     /**********************************************************
     *
@@ -125,7 +116,6 @@
             app.isLoading = false;
         }
     }
-
 
     app.destroyContent = function() {
         console.log("Destroy content objects (app)");
@@ -163,7 +153,8 @@
 	});
 
    app.processMarker = function(mID) {
-        console.log("mCounter === 1?: " + (app.markerCounter === 1));
+        console.log("app.mCounter === 1?: " + (app.markerCounter === 1));
+        console.log("app.mCounter: " + app.markerCounter);
         if (app.markerCounter === 1) {
             app.selectedMarker = mID;
             app.viewingOptions = true;
