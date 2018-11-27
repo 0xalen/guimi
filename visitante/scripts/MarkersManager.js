@@ -27,8 +27,9 @@ function MarkersManager() {
         var mList = requestMarkers();
         console.log(( mList == undefined) ? "Marker list empty":"Marker list ready.");
 
-        console.log('MARKERS ADDED TO LIST');
         callback(addMarkersToList(mList));
+        console.log('MARKERS ADDED TO LIST');
+        alert('MARKERS ADDED TO LIST');
     }
 
     var requestMarkers = function() {
