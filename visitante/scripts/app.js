@@ -19,9 +19,8 @@
 
     var app = {
         isLoading: true,
-//        spinner: document.querySelector('.loader'),
+        spinner: document.querySelector('.loader'),
         container: document.querySelector('.main'),
-        addDialog: document.querySelector('.dialog-container'),
 		markersLoaded: false,
 		visitorManager: null,
 		markerCounter: 0,
@@ -117,6 +116,15 @@
           app.isLoading = false;
         }
     }*/
+    app.checkLoader = function() {
+        if (app.isLoading) {
+            app.spinner.setAttribute('hidden', true);
+            app.container.removeAttribute('hidden');
+            app.isLoading = false;
+        }
+    }
+
+
     app.destroyContent = function() {
         console.log("Destroy content objects (app)");
         //app.viewingContent = false;
@@ -145,9 +153,10 @@
 	/**************** AUGMENTED REALITY *********************/
 	app.visitor = new VisitorManager(app);
     // Load Markers
-	app.visitor.loadMarkers();
-
-    app.visitor.identifyScene();
+	app.visitor.loadMarkers(function(){
+	    app.checkLoader();
+	    app.visitor.identifyScene();
+	});
 
    app.processMarker = function(mID) {
         console.log("mCounter === 1?: " + (app.markerCounter === 1));

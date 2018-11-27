@@ -31,7 +31,7 @@ function VisitorManager(mainApp) {
         return mManager.checkMarkersLoaded();
     }
 
-    this.loadMarkers = function() {
+    this.loadMarkers = function(callback) {
         mManager = new MarkersManager()
         mManager.setMarkers();
 
@@ -39,6 +39,7 @@ function VisitorManager(mainApp) {
         if (typeof mManager.getMarkers() == 'undefined' ) {
             loadMarkers();
         }
+        callback(true);
     }
 
     this.identifyScene = function() {
