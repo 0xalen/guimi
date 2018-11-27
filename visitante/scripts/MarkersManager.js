@@ -46,7 +46,9 @@ function MarkersManager() {
         var i, m;
         for (i = 0; i < mList.mID.length; i++) {
             m = new Marker(mList.mID[i], mList.mElementName[i], mList.mPattURL[i]);
-            markerList.addMarker(m);
+            if (document.getElementById(mList.mID[i]) === null) {
+                markerList.addMarker(m);
+            }
         }
         //console.log("markerList: " + typeof markerList.getList());              //DEBUG
     }
@@ -157,6 +159,10 @@ function MarkersManager() {
         }
     }
 
+    var completeMarkerList = function() {
+
+    }
+
     /** TO-DO: DOCUMENT NEW METHOD: HIDE MARKERS **/
     this.hideUnselectedMarkers = function(selectedMarker) {
         var ml = markerList.getList();
@@ -166,9 +172,12 @@ function MarkersManager() {
         var i;
         for (i = 0; i < ml.length; i++){
             id = ml[i].getMarkerID();
+            console.log("Selected  marker: " + selectedMarker);
             if (id === selectedMarker) {
                 continue;
             }
+            console.log("MARKER ID: " + ml[i].getMarkerID());                   // DEBUG
+            console.log("MARKER ID (gEbId): " + document.getElementById(id));   // DEBUG
             markerEl = document.getElementById(id);
             markerEl.setAttribute('visible', false);
         }
@@ -181,7 +190,7 @@ function MarkersManager() {
 
         var i;
         for (i = 0; i < ml.length; i++){
-            //console.log("MARKER ID: " +ml[i].getMarkerID());
+            console.log("MARKER ID: " +ml[i].getMarkerID());
             id = ml[i].getMarkerID();
             markerEl = document.getElementById(id);
             if (markerEl.visible == false) {
