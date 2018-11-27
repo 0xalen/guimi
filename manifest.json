@@ -13,10 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "/ar-guimi.html",
   "display": "standalone",
   "scope": "/",
   "background_color": "#2657C0",
   "theme_color": "#2657C0"
 }
-
