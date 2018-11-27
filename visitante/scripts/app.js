@@ -89,10 +89,8 @@
                 app.processMarker('A0003');
                 console.log('Marker counter: ' + app.markerCounter);    //DEBUG
         });
+        app.checkLoader();
     }
-    document.querySelector('p').addEventListener('click', function (evt) {
-        console.log('This 2D element was clicked!');
-    });
 
     /**********************************************************
     *
@@ -145,12 +143,12 @@
 	/**************** AUGMENTED REALITY *********************/
 	app.visitor = new VisitorManager(app);
     // Load Markers
-	app.visitor.loadMarkers(function(){
-	    console.log("Markers loaded at start");
+	app.visitor.loadMarkers(function() {
+	    //console.log("Markers loaded at start");
 	    app.addDebugEventListeners();
-	    app.visitor.identifyScene();
-	    app.checkLoader();
 	});
+
+    app.visitor.identifyScene();
 
    app.processMarker = function(mID) {
         console.log("app.mCounter === 1?: " + (app.markerCounter === 1));
