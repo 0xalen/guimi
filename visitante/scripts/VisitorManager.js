@@ -63,10 +63,12 @@ function VisitorManager(mainApp) {
 
     // If none specified, content Type defaults to image
     this.visualizeContent = function(markerID, contentType = 0) {
+        console.log("typeof cManager === 'undefined' " + (typeof cManager === 'undefined'));
         if (typeof cManager === 'undefined') {
             cManager = new ContentManager(markerID, contentType);
             cManager.setContent();
         }
+        console.log("typeof cScreen === 'undefined' " + (typeof cScreen === 'undefined'));
         if (typeof cScreen === 'undefined') {
             cManager.prepareContent();
             cScreen = new ContentScreen(cManager.getContent(), app, cManager);
@@ -82,7 +84,10 @@ function VisitorManager(mainApp) {
             cManager = undefined;
             cScreen = undefined;
             console.log("Content Screen destroyed (vManager)");
+            console.log("cManager: " + cManager);
+            console.log("cScreen: " + cScreen);
             //oManager.setOptions();
+
         });
     }
 
