@@ -101,7 +101,7 @@ function MarkersManager() {
         markerEl.setAttribute("preset", "pattern");
         markerEl.setAttribute("type", "pattern");
         markerEl.setAttribute("url", pattURL);
-        markerEl.setAttribute("registerevents", "");
+        markerEl.setAttribute("select-marker", "");
 
         sceneEl.insertAdjacentElement('beforeend', markerEl);
 

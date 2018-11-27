@@ -38,25 +38,28 @@
 
     <script>
     AFRAME.registerComponent('select-marker', {
-      schema: {
-        color: {default: 'red'},
-        message: {type: 'string', default: 'Marker selected!'}
-      },
+        schema: {
+            message: {type: 'string', default: 'Select Markers'}
+        },
 
-      init: function () {
-        var data = this.data;
-        var el = this.el;  // <a-box>
-        var markerID = el.getAttribute('id');
+        init: function () {
+            var self = this;
+            this.eventHandlerFn = function() { console.log(self.data.message); };
+        },
 
-        el.addEventListener('click', function () {
-          //el.setAttribute('color', data.color);
-          console.log("el.id: " + markerID);
-        });
-      }
+        update: function() {
+            var data = this.data;
+            var el = this.el;
+            var markerID = el.getAttribute('id');
+
+            el.addEventListener('click', function () {
+              //el.setAttribute('color', data.color);
+              console.log("el.id: " + markerID);
+              document.getElementById("markerData").innerHTML= markerID;
+            });
+        }
     });
-  </script>
-
-
+    </script>
 
 </head>
 <body>
@@ -80,7 +83,9 @@
         -->
 
         <a-entity camera></a-entity>
+        <a-camera><a-cursor></a-cursor></a-camera>
     </a-scene>
+
 
 	<main class="main"></main>
         <script src="visitante/scripts/app.js" async></script>
@@ -97,6 +102,9 @@
       <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
     </svg>
   </div>
+
+    <div id="markerData" value="">
+    </div>
 
     <div id="divDebug" >
 		<p id="debugP"></p>
