@@ -250,9 +250,9 @@ function ContentManager(mID, cType) {
         idAtt.value = contentID;
         textEl.setAttributeNode(idAtt);
 
-        var geometryAtt = document.createAttribute("geometry");
-        geometryAtt.value = "geometry";
-        textEl.setAttributeNode(geometryAtt);
+        //var geometryAtt = document.createAttribute("geometry");
+        //geometryAtt.value = "geometry";
+        //textEl.setAttributeNode(geometryAtt);
 
         var valueAtt = document.createAttribute("value");
         valueAtt.value = "";
