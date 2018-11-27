@@ -33,10 +33,8 @@ function VisitorManager(mainApp) {
 
     this.loadMarkers = function(callback) {
         mManager = new MarkersManager()
-        mManager.setMarkers(function(){
-	        callback();
-	    });
-
+        mManager.setMarkers();
+        callback();
         //console.log("mManager.getMarkers(): " + mManager.getMarkers());   //DEBUG
         /*if (typeof mManager.getMarkers() == 'undefined' ) {
             loadMarkers();
