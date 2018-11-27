@@ -31,8 +31,35 @@ function MarkersManager() {
 
     var requestMarkers = function() {
         // Request markers from API
-        // Process JSON
-        // var mList = JSON.parse(sentData);
+        /*
+        var url = 'https://guimi.tmp/markers'
+
+         // Fetch the latest data.
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if (request.readyState === XMLHttpRequest.DONE) {
+                if (request.status === 200) {
+                // Process JSON
+                    var response = JSON.parse(request.response);
+                    var mList = response;
+                    return mList;
+                }
+          } else {
+            // Return test markers since no data is available.
+            var mList = {
+                        "mID":[ "A0001", "A0002", "A0003", "A0004", "A0005" ],
+                        "mElementName":[ "Apple Mouse", "IBM", "RAM", "Arcade", "HD" ],
+                        "mPattURL":[ "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0002.patt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0003.patt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0004.patt", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0005.patt"]
+            }
+            console.log((mList == undefined) ? "Marker data missing":"Marker list data received");
+            return mList;
+          }
+        };
+        request.open('GET', url);
+        request.send();
+        */
+        /******************* TEMP *****************************/
+        // Return test markers since no data is available.
         var mList = {
                     "mID":[ "A0001", "A0002", "A0003", "A0004", "A0005" ],
                     "mElementName":[ "Apple Mouse", "IBM", "RAM", "Arcade", "HD" ],
