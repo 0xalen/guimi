@@ -144,7 +144,7 @@
     // Load Markers
 	app.visitor.loadMarkers(function(){
 	    console.log("Markers loaded at start");
-	    alert("markersLoaded: " + markersLoaded);
+	    alert("markersLoaded: " + app.markersLoaded);
 	    app.addDebugEventListeners();
 	    app.checkLoader();
 	    app.visitor.identifyScene();
