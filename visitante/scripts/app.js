@@ -69,25 +69,26 @@
         console.log("lost")
     }) */
     /* TEMP EVENTS */
-    document.getElementById("debugBtn1").addEventListener("click", function() {
-            console.log('Process Marker (A0001)');
-            app.markerCounter++;
-            app.processMarker('A0001');
-            console.log('Marker counter: ' + app.markerCounter);
-    });
-    document.getElementById("debugBtn2").addEventListener("click", function() {
-            console.log('Process Marker (A0002)');
-            app.markerCounter++;
-            app.processMarker('A0002');
-            console.log('Marker counter: ' + app.markerCounter);    //DEBUG
-    });
-    document.getElementById("debugBtn3").addEventListener("click", function() {
-            console.log('Process Marker (A0003)');
-            app.markerCounter++;
-            app.processMarker('A0003');
-            console.log('Marker counter: ' + app.markerCounter);    //DEBUG
-    });
-
+    app.addDebugEventListeners = function() {
+        document.getElementById("debugBtn1").addEventListener("click", function() {
+                console.log('Process Marker (A0001)');
+                app.markerCounter++;
+                app.processMarker('A0001');
+                console.log('Marker counter: ' + app.markerCounter);
+        });
+        document.getElementById("debugBtn2").addEventListener("click", function() {
+                console.log('Process Marker (A0002)');
+                app.markerCounter++;
+                app.processMarker('A0002');
+                console.log('Marker counter: ' + app.markerCounter);    //DEBUG
+        });
+        document.getElementById("debugBtn3").addEventListener("click", function() {
+                console.log('Process Marker (A0003)');
+                app.markerCounter++;
+                app.processMarker('A0003');
+                console.log('Marker counter: ' + app.markerCounter);    //DEBUG
+        });
+    }
     /**********************************************************
     *
     *   UI
@@ -155,6 +156,7 @@
     // Load Markers
 	app.visitor.loadMarkers(function(){
 	    app.checkLoader();
+	    app.addDebugEventListeners
 	    app.visitor.identifyScene();
 	});
 
