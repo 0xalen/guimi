@@ -19,11 +19,11 @@ var cacheName = 'guimiPWA-1';
 var filesToCache = [
   '/',
   '/index.html',
-  '/ar-guimi.html',
   '/visitante/scripts/app.js',
   '/visitante/styles/inline.css',
   '/visitante/styles/guimi.css',
   '/visitante/scripts/sidenav.js',
+  '/visitante/images/icons/ic_refresh_white_24px.png',
   '/visitante/images/logos/logo_guimi-192.png',
   '/visitante/images/logos/logo_guimi-512.png',
   '/visitante/images/logos/logo_guimi-circle.png'

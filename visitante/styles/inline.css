@@ -116,7 +116,14 @@ body {
     outline: none;
     cursor: pointer; }
   .header #butRefresh {
-    background: url(visitante/images/icons/ic_add_white_24px.svg) center center no-repeat; }
+    position: absolute;
+    z-index: 100001;
+    color: white;
+    border-color: black;
+    font-size: 7vh;
+    top: 0;
+    right: 3%;
+    /*background: url(visitante/images/icons/ic_refresh_white_24px.png) center center no-repeat; */}
   .header #butAdd {
     background: url(visitante/images/icons/ic_add_white_24px.svg) center center no-repeat; }
 
