@@ -146,9 +146,9 @@
 	app.visitor.loadMarkers(function() {
 	    //console.log("Markers loaded at start");
 	    app.addDebugEventListeners();
-	    app.visitor.identifyScene();
 	});
 
+    app.visitor.identifyScene();
 
    app.processMarker = function(mID) {
         console.log("app.mCounter === 1?: " + (app.markerCounter === 1));
